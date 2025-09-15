@@ -1,4 +1,6 @@
 .container {
+  position: relative;
+
   :global(.swiper-pagination) {
     display: flex;
     justify-content: center;
@@ -14,6 +16,39 @@
       background-color: var(--yellow);
       width: 11.8px;
       height: 11.8px;
+    }
+  }
+
+  .arrows {
+    padding: 4rem;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    transform: translateY(-15%);
+
+    .leftArrow,
+    .rightArrow {
+      cursor: pointer;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: transparent;
+      transition: background-color 0.3s ease-in-out;
+      pointer-events: all;
+
+      &:hover {
+        background-color: var(--arrow-hover);
+      }
+    }
+
+    .rightArrow {
     }
   }
 }

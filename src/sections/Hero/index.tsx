@@ -8,6 +8,7 @@ import { dataAtom, loadingAtom } from "@/stores"
 import { useAtom } from "jotai"
 import { useEffect } from "react"
 import { SwiperSlide } from "swiper/react"
+import { IconHeroVector } from "@/assets/IconHeroVector"
 
 const HERO_CARDS = [
   {
@@ -53,6 +54,7 @@ export default function Hero() {
         autoPlay
         delay={10000}
         thumbs={true}
+        arrows
       >
         {HERO_CARDS?.map((card) => {
           return (
@@ -67,6 +69,9 @@ export default function Hero() {
           )
         })}
       </SwiperContainer>
+      <div className={styles.heroVector}>
+        {/* <IconHeroVector width={"100%"} height={200} /> */}
+      </div>
     </div>
   )
 }

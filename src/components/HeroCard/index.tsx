@@ -21,9 +21,11 @@ export default function HeroCard({ title, description, image, dark }: IProps) {
         <div className={styles.title}>{title}</div>
         <div className={styles.description}>{description}</div>
 
-        <Link className={styles.readMore} href={"#"}>
-          Devamını Oku
-        </Link>
+        <div className={styles.readMoreWrapper}>
+          <Link className={styles.readMore} href={"#"}>
+            Devamını Oku
+          </Link>
+        </div>
       </div>
     </div>
   )

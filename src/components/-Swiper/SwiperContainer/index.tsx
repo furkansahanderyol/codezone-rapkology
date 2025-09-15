@@ -1,4 +1,4 @@
-import { Swiper } from "swiper/react"
+import { Swiper, SwiperRef } from "swiper/react"
 
 import "swiper/css"
 import "swiper/css/pagination"
@@ -6,6 +6,10 @@ import "swiper/css/navigation"
 import "swiper/css/autoplay"
 import styles from "./index.module.scss"
 import { Autoplay, Pagination, Thumbs } from "swiper/modules"
+import { IconArrowLeft } from "@/assets/IconArrowLeft"
+import { IconArrowRight } from "@/assets/IconArrowRight"
+import { useState } from "react"
+import { Swiper as SwiperType } from "swiper"
 
 interface IProps {
   spaceBetween?: number
@@ -15,6 +19,7 @@ interface IProps {
   autoPlay: boolean
   delay: number
   thumbs: boolean
+  arrows: boolean
 }
 
 export default function SwiperContainer({
@@ -25,7 +30,9 @@ export default function SwiperContainer({
   autoPlay,
   delay,
   thumbs,
+  arrows,
 }: IProps) {
+  const [swiper, setSwiper] = useState<SwiperType | undefined>(undefined)
   const swiperModules = []
 
   if (autoPlay) {
@@ -41,6 +48,7 @@ export default function SwiperContainer({
   return (
     <div className={styles.container}>
       <Swiper
+        onSwiper={(swiper) => setSwiper(swiper)}
         spaceBetween={spaceBetween}
         slidesPerView={slidersPerView}
         loop={loop}
@@ -52,6 +60,23 @@ export default function SwiperContainer({
         }}
         navigation={true}
       >
+        {arrows && (
+          <div className={styles.arrows}>
+            <div
+              onClick={() => swiper?.slidePrev()}
+              className={styles.leftArrow}
+            >
+              <IconArrowLeft />
+            </div>
+            <div
+              onClick={() => swiper?.slideNext()}
+              className={styles.rightArrow}
+            >
+              <IconArrowRight />
+            </div>
+          </div>
+        )}
+
         {children}
       </Swiper>
     </div>
