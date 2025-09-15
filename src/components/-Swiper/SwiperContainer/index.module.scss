@@ -1,0 +1,19 @@
+.container {
+  :global(.swiper-pagination) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    :global(.swiper-pagination-bullet) {
+      background-color: var(--bullet-inactive-background);
+      width: 6.6px;
+      height: 6.6px;
+    }
+
+    :global(.swiper-pagination-bullet-active) {
+      background-color: var(--yellow);
+      width: 11.8px;
+      height: 11.8px;
+    }
+  }
+}

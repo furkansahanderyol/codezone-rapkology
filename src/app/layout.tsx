@@ -1,18 +1,8 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Saira, Saira_Condensed } from "next/font/google"
+import { Saira, Saira_Condensed } from "next/font/google"
 import "./globals.css"
 import Providers from "@/provider"
 import Navbar from "@/components/Navbar"
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
 
 const saira = Saira({
   variable: "--font-saira",

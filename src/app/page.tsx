@@ -1,14 +1,12 @@
 import styles from "./page.module.css"
+import Hero from "@/sections/Hero"
 
 export default function Home() {
   return (
-    <div
-      style={{
-        height: "400vh",
-      }}
-      className={styles.page}
-    >
-      <main className={styles.main}></main>
+    <div className={styles.page}>
+      <main className={styles.main}>
+        <Hero />
+      </main>
     </div>
   )
 }
