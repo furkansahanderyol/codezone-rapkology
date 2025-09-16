@@ -13,11 +13,9 @@ interface IProps {
 }
 
 export default function TrendCard({
-  title,
   description,
   image,
   authorName,
-  authorImage,
   index,
 }: IProps) {
   return (

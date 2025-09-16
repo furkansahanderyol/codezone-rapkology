@@ -7,7 +7,7 @@ interface IProps {
   onClick?: () => void
 }
 
-export default function ({ className, children, onClick }: IProps) {
+export default function SkewedButton({ className, children, onClick }: IProps) {
   return (
     <div className={styles.container}>
       <button onClick={onClick} className={clsx(styles.button, className)}>
