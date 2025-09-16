@@ -55,6 +55,7 @@ export default function Hero() {
         delay={10000}
         thumbs={true}
         arrows
+        scrollbar={false}
       >
         {HERO_CARDS?.map((card) => {
           return (

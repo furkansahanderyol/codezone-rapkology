@@ -2,6 +2,7 @@ import Announcement from "@/composite/Announcement"
 import styles from "./page.module.css"
 import Hero from "@/composite/Hero"
 import Trends from "@/composite/Trends"
+import Favorites from "@/composite/Favorites"
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <Hero />
         <Announcement />
         <Trends />
+        <Favorites />
       </main>
     </div>
   )

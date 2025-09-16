@@ -52,4 +52,29 @@
     .rightArrow {
     }
   }
+
+  :global(.swiper-scrollbar) {
+    position: absolute;
+    bottom: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 6px;
+    background-color: var(--border);
+    border-radius: 3px;
+    z-index: 100;
+  }
+
+  :global(.swiper-scrollbar-drag) {
+    background-color: var(--yellow);
+    border-radius: 3px;
+    height: 100%;
+    width: auto;
+  }
+
+  .customScrollbar {
+    max-width: 70%;
+    width: 70%;
+    background-color: var(--weak-text);
+  }
 }

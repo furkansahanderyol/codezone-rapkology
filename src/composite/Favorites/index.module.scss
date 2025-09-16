@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5.5rem;
+  padding: 5rem 0;
+
+  .labels {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--white);
+    padding: 2rem 6rem;
+    width: fit-content;
+    clip-path: polygon(90% 80%, 100% 0%, 0% 0%, 0% 100%);
+
+    .youtubeLogo,
+    .spotifyLogo {
+      color: var(--black);
+      transition: color 0.3s ease-in-out;
+    }
+
+    .youtubeLogo {
+      &:hover {
+        color: #d40000;
+      }
+    }
+
+    .spotifyLogo {
+      &:hover {
+        color: green;
+      }
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header {
+      font-family: var(--font-saira-condensed);
+      font-size: 3.75rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.5;
+      max-height: calc(1.5em * 2);
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      padding: 0 5rem;
+      max-width: 20%;
+    }
+
+    .swiperWrapper {
+      max-width: 900px;
+    }
+  }
+}

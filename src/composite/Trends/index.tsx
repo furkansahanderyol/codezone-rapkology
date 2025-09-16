@@ -5,12 +5,16 @@ import styles from "./index.module.scss"
 import { useAtom } from "jotai"
 import { dataAtom } from "@/stores"
 import TrendCard from "@/components/TrendCard"
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import SkewedButton from "@/components/SkewedButton"
 
 export default function Trends() {
   const [data] = useAtom(dataAtom)
   const [limitVisibleCards, setLimitVisibleCards] = useState(true)
+
+  const trends = useMemo(() => {
+    return data?.filter((value) => value.attributes.trends)
+  }, [data])
 
   return (
     <section className={styles.container}>
@@ -18,7 +22,7 @@ export default function Trends() {
         TRENDLER <IconIncrease />
       </div>
       <div className={styles.grid}>
-        {data?.map((value, index) => {
+        {trends?.map((value, index) => {
           if (limitVisibleCards && index > 5) return
 
           return (
