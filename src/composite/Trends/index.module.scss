@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5.5rem;
+  padding: 5rem;
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-family: var(--font-saira-condensed);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--white);
+
+    svg {
+      color: var(--yellow);
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.75rem;
+  }
+
+  .showAllWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .showAll {
+      background-color: var(--white);
+    }
+  }
+}

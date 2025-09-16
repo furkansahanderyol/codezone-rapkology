@@ -12,14 +12,14 @@ export const IconArrowLeft: React.FC<IconType> = (props) => {
     >
       <path
         d="M25 13.3232H1"
-        stroke="white"
+        stroke="currentColor"
         strokeWidth="1.7648"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M13.0001 1.32324L1.00012 13.3232L13.0001 25.3232"
-        stroke="white"
+        stroke="currentColor"
         strokeWidth="1.7648"
         strokeLinecap="round"
         strokeLinejoin="round"

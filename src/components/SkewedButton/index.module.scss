@@ -1,0 +1,25 @@
+.container {
+  filter: drop-shadow(4px 4px 0px var(--black));
+}
+
+// Button separated for preventing overwrite
+.button {
+  outline: none;
+  border: none;
+  background-color: var(--yellow);
+  text-decoration: none;
+  color: var(--black);
+  font-size: 14px;
+  font-weight: bold;
+  font-family: var(--font-saira);
+  padding: 1rem;
+  clip-path: polygon(95% 100%, 100% 0, 0 2%, 5% 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}

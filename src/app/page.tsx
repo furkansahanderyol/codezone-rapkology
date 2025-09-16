@@ -1,6 +1,7 @@
 import Announcement from "@/composite/Announcement"
 import styles from "./page.module.css"
 import Hero from "@/composite/Hero"
+import Trends from "@/composite/Trends"
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <main className={styles.main}>
         <Hero />
         <Announcement />
+        <Trends />
       </main>
     </div>
   )
