@@ -1,0 +1,21 @@
+import type { IconType } from "./type"
+
+export const IconStar: React.FC<IconType> = (props) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="19"
+      viewBox="0 0 20 19"
+      fill="none"
+      {...props}
+    >
+      <path
+        d="M9.86204 1.49164L12.6256 6.69191L18.5111 6.89616L14.4193 11.1315L16.0438 16.792L10.7513 14.2093L5.86986 17.5034L6.69071 11.6719L2.04933 8.04728L7.84908 7.02592L9.86204 1.49164Z"
+        stroke="white"
+        strokeWidth="2.34353"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}

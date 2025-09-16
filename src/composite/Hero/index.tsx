@@ -8,6 +8,7 @@ import { dataAtom, loadingAtom } from "@/stores"
 import { useAtom } from "jotai"
 import { useEffect } from "react"
 import { SwiperSlide } from "swiper/react"
+import Image from "next/image"
 
 const HERO_CARDS = [
   {
@@ -45,7 +46,7 @@ export default function Hero() {
   }, [setDataAtom, setLoading])
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <SwiperContainer
         slidersPerView={1}
         spaceBetween={3}
@@ -69,8 +70,8 @@ export default function Hero() {
         })}
       </SwiperContainer>
       <div className={styles.heroVector}>
-        {/* <IconHeroVector width={"100%"} height={200} /> */}
+        <Image src={"/vector.webp"} fill alt="" objectFit="cover" />
       </div>
-    </div>
+    </section>
   )
 }

@@ -1,0 +1,150 @@
+.container {
+  max-width: 100%;
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+
+  .content {
+    position: relative;
+    margin: 3.75rem 5rem;
+
+    .backgroundImagesWrapper {
+      max-width: 100%;
+      width: 100%;
+      height: 700px;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+
+      .background {
+        object-position: bottom center;
+        transform: rotateY(180deg);
+      }
+    }
+
+    .announcement {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 20px;
+      min-height: 640px;
+      padding-bottom: 5rem;
+
+      .artistImages {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        pointer-events: none;
+
+        .artistImage {
+          position: relative;
+          max-width: 420px;
+          width: 100%;
+          height: 437px;
+        }
+      }
+
+      .announcementInformation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        top: 0%;
+        transform: translateX(-50%) rotate(-4deg);
+
+        .upperSide {
+          display: flex;
+          align-items: center;
+
+          .leftSide {
+            position: relative;
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 1px;
+              height: 80%;
+              background-color: var(--border);
+              top: 50%;
+              right: 0;
+              transform: translateY(-50%);
+            }
+          }
+
+          .rightSide {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            text-transform: uppercase;
+            font-family: var(--font-saira-condensed);
+            line-height: 0.95;
+            padding-left: 1rem;
+
+            .regular {
+              font-weight: 300;
+              font-size: 68px;
+              color: var(--white);
+            }
+
+            .highlighted {
+              font-weight: 700;
+              font-size: 68px;
+              color: var(--yellow);
+            }
+
+            .followUs {
+              font-weight: 700;
+              font-size: 1rem;
+              color: var(--white);
+              line-height: 1;
+              text-transform: none;
+            }
+          }
+        }
+
+        .bottomSide {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 0.5rem;
+          border-radius: 18.75px;
+          border: 1px solid var(--border);
+          background-color: #151515;
+
+          .channelLink {
+            padding: 0.5rem 1rem;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            text-decoration: none;
+            font-family: var(--font-saira-condensed);
+            font-weight: 500;
+            color: var(--white);
+
+            &.follow {
+              background-color: var(--twitch-purple);
+            }
+
+            &.subscribe {
+              background-color: var(--subscribe-background);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .vector {
+    z-index: 1000;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 300px;
+  }
+}
