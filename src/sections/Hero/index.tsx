@@ -8,7 +8,6 @@ import { dataAtom, loadingAtom } from "@/stores"
 import { useAtom } from "jotai"
 import { useEffect } from "react"
 import { SwiperSlide } from "swiper/react"
-import { IconHeroVector } from "@/assets/IconHeroVector"
 
 const HERO_CARDS = [
   {
@@ -30,8 +29,8 @@ const HERO_CARDS = [
 ]
 
 export default function Hero() {
-  const [data, setDataAtom] = useAtom(dataAtom)
-  const [loading, setLoading] = useAtom(loadingAtom)
+  const [, setDataAtom] = useAtom(dataAtom)
+  const [, setLoading] = useAtom(loadingAtom)
 
   useEffect(() => {
     setLoading(true)
@@ -43,7 +42,7 @@ export default function Hero() {
       .finally(() => {
         setLoading(false)
       })
-  }, [])
+  }, [setDataAtom, setLoading])
 
   return (
     <div className={styles.container}>

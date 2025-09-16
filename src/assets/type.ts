@@ -1,4 +1,4 @@
-import { CSSProperties } from "react"
+import { CSSProperties, MouseEventHandler } from "react"
 
 export type IconType = {
   strokeDashoffset?: undefined | string | number
@@ -8,6 +8,6 @@ export type IconType = {
   style?: CSSProperties | undefined
   className?: undefined | string
   color?: undefined | string
-  onClick?: (e: any) => void
+  onClick?: MouseEventHandler<SVGSVGElement>
   fill?: undefined | string
 }

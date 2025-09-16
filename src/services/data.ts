@@ -1,5 +1,3 @@
-import { Store } from "@/provider"
-import { loadingAtom } from "@/stores"
 import { PostListResponse } from "./type"
 
 export namespace DataService {
