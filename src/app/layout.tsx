@@ -3,6 +3,7 @@ import { Saira, Saira_Condensed } from "next/font/google"
 import "./globals.css"
 import Providers from "@/provider"
 import Navbar from "@/components/Navbar"
+import Footer from "@/composite/Footer"
 
 const saira = Saira({
   variable: "--font-saira",
@@ -31,6 +32,7 @@ export default function RootLayout({
         <body className={`${saira.variable} ${sairaCondensed.variable}`}>
           <Navbar />
           {children}
+          <Footer />
         </body>
       </html>
     </Providers>

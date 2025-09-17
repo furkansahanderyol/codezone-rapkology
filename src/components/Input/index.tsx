@@ -1,3 +1,5 @@
+"use client"
+
 import { ChangeEvent, useRef, useState } from "react"
 import styles from "./index.module.scss"
 import clsx from "clsx"

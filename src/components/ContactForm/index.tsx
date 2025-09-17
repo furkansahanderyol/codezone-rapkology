@@ -1,8 +1,12 @@
+"use client"
+
 import Input from "@/components/Input"
 import styles from "./index.module.scss"
 import { IconArrowRight } from "@/assets/IconArrowRight"
 import { FormEvent } from "react"
 import Link from "next/link"
+import clsx from "clsx"
+import { IconRapkologyLogo } from "@/assets/IconRapkologyLogo"
 
 interface IProps {
   configuration: "footer" | "body"
@@ -21,8 +25,18 @@ export default function ContactForm({
   }
 
   return (
-    <form className={styles.container}>
+    <form
+      className={clsx(
+        styles.container,
+        configuration === "footer" && styles.footerContainer
+      )}
+    >
       <div className={styles.inputWrapper}>
+        {configuration === "footer" && (
+          <div className={styles.logo}>
+            <IconRapkologyLogo width={249} height={62} />
+          </div>
+        )}
         <div className={styles.header}>{header}</div>
         <Input
           placeholder={"Email"}
@@ -41,9 +55,9 @@ export default function ContactForm({
       <div className={styles.socials}>
         <div className={styles.linksWrapper}>
           <div className={styles.socialLinks}>
-            {socialLinks.map((link) => {
+            {socialLinks.map((link, index) => {
               return (
-                <Link href={link.link} className={styles.link}>
+                <Link key={index} href={link.link} className={styles.link}>
                   {link.logo}
                 </Link>
               )

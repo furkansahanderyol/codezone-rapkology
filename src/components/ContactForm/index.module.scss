@@ -93,3 +93,46 @@
     }
   }
 }
+
+.footerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+  padding: 3.875rem 5rem;
+
+  .inputWrapper {
+    gap: 3.375rem;
+
+    .logo {
+      color: var(--yellow);
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 3.375rem;
+      width: 100%;
+    }
+  }
+
+  .socials {
+    .linksWrapper {
+      gap: 2rem;
+
+      .socialLinks {
+      }
+
+      .otherUrls {
+        flex-direction: row;
+        gap: 2.5rem;
+
+        .firstLine,
+        .secondLine {
+          gap: 2.5rem;
+        }
+      }
+    }
+  }
+}

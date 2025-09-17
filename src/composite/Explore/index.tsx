@@ -17,60 +17,8 @@ import { IconDiscordLogo } from "@/assets/IconDiscordLogo"
 import { IconSpotifyMiniLogo } from "@/assets/IconSpotifyMiniLogo"
 import { IconYoutubeMiniLogo } from "@/assets/IconYoutubeMiniLogo"
 import Categories from "@/components/Categories"
-
-const SOCIAL_LINKS = [
-  {
-    logo: <IconFacebookLogo width={32} height={32} />,
-    link: "#",
-  },
-  {
-    logo: <IconTwitterLogo width={32} height={32} />,
-    link: "#",
-  },
-  {
-    logo: <IconDiscordLogo width={32} height={32} />,
-    link: "#",
-  },
-  {
-    logo: <IconSpotifyMiniLogo width={32} height={32} />,
-    link: "#",
-  },
-  {
-    logo: <IconYoutubeMiniLogo width={32} height={32} />,
-    link: "#",
-  },
-]
-
-const CATEGORIES = [
-  {
-    id: 0,
-    label: "Türk Rap",
-  },
-  {
-    id: 1,
-    label: "Yabancı Rap",
-  },
-  {
-    id: 2,
-    label: "Rap Haberleri",
-  },
-  {
-    id: 3,
-    label: "Haftanın Klipleri",
-  },
-  {
-    id: 4,
-    label: "Ayın Klipleri",
-  },
-  {
-    id: 5,
-    label: "Rap Sohbetleri",
-  },
-  {
-    id: 6,
-    label: "Rap Müsabakaları",
-  },
-]
+import { CATEGORIES } from "@/constants/categories"
+import { SOCIAL_LINKS } from "@/constants/socialLinks"
 
 export default function Explore() {
   const [data] = useAtom(dataAtom)
