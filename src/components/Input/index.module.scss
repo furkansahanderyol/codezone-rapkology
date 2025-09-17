@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 21px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--border);
+  width: fit-content;
+  gap: 1rem;
+  transition: border 0.3s ease-in-out;
+  width: 100%;
+  cursor: pointer;
+
+  &.focused {
+    border: 1px solid var(--white);
+    border-radius: 5px;
+  }
+
+  .input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+    width: 100%;
+    font-family: var(--font-saira);
+    font-size: 0.875rem;
+    font-weight: 700;
+
+    &::placeholder {
+      color: var(--white);
+      text-transform: uppercase;
+    }
+  }
+}

@@ -2,6 +2,8 @@ import Link from "next/link"
 import styles from "./index.module.scss"
 import Image from "next/image"
 import { IconArrowRight } from "@/assets/IconArrowRight"
+import AuthorImage from "../AuthorInformation"
+import AuthorInformation from "../AuthorInformation"
 
 interface IProps {
   title: string
@@ -22,12 +24,13 @@ export default function TrendCard({
     <Link href={"#"} className={styles.container}>
       <div className={styles.index}>{index < 10 ? `0${index}` : index}</div>
       <div className={styles.wrapper}>
-        <div className={styles.authorInformation}>
-          <div className={styles.authorImage}>
-            <Image src={image} fill alt="" objectFit="cover" />
-          </div>
-          <div className={styles.authorName}>{authorName}</div>
-        </div>
+        <AuthorInformation
+          url={image}
+          alt=""
+          name={authorName}
+          objectFit="cover"
+        />
+
         <div className={styles.contentWrapper}>
           <div className={styles.content}>{description}</div>
         </div>

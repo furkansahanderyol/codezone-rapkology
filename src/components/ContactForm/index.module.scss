@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.125rem;
+
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+
+    .header {
+      font-family: var(--font-saira-condensed);
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 104%;
+      color: var(--white);
+      width: 90%;
+    }
+
+    .sendButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25rem;
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: var(--yellow);
+      text-transform: uppercase;
+      font-family: var(--font-saira);
+      font-size: 0.875rem;
+      font-weight: 700;
+
+      svg {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+    }
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.375rem;
+
+    .linksWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 4.875rem;
+
+      .socialLinks {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+
+        .link {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--yellow);
+        }
+      }
+
+      .otherUrls {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .firstLine,
+        .secondLine {
+          display: flex;
+          align-items: center;
+          gap: 3.75rem;
+
+          a {
+            font-family: var(--font-saira);
+            font-weight: 400;
+            font-size: 0.875rem;
+            color: var(--white);
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .copyright {
+      font-family: var(--font-saira);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--copyright-gray);
+    }
+  }
+}

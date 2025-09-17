@@ -1,0 +1,63 @@
+import type { IconType } from "./type"
+
+export const IconGrid: React.FC<IconType> = (props) => {
+  return (
+    <svg
+      width="24"
+      height="20"
+      viewBox="0 0 24 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect
+        x="0.950256"
+        y="0.119629"
+        width="9.9111"
+        height="3.75257"
+        rx="1.43424"
+        fill="currentColor"
+      />
+      <rect
+        x="0.950256"
+        y="15.6248"
+        width="9.9111"
+        height="3.75257"
+        rx="1.43424"
+        fill="currentColor"
+      />
+      <rect
+        x="14.0928"
+        y="0.119629"
+        width="9.9111"
+        height="3.75257"
+        rx="1.43424"
+        fill="currentColor"
+      />
+      <rect
+        x="0.950256"
+        y="7.87207"
+        width="9.9111"
+        height="3.75257"
+        rx="1.43424"
+        fill="currentColor"
+      />
+      <rect
+        x="14.0928"
+        y="7.87207"
+        width="9.9111"
+        height="3.75257"
+        rx="1.43424"
+        fill="currentColor"
+      />
+      <rect
+        x="14.0928"
+        y="15.625"
+        width="9.9111"
+        height="3.75257"
+        rx="1.43424"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}

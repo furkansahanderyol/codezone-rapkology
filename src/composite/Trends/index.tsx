@@ -7,6 +7,7 @@ import { dataAtom } from "@/stores"
 import TrendCard from "@/components/TrendCard"
 import { useMemo, useState } from "react"
 import SkewedButton from "@/components/SkewedButton"
+import Post from "@/components/Post"
 
 export default function Trends() {
   const [data] = useAtom(dataAtom)
@@ -26,14 +27,17 @@ export default function Trends() {
           if (limitVisibleCards && index > 5) return
 
           return (
-            <TrendCard
+            <Post
               key={value._id}
               title={value.attributes.title}
               description={value.attributes.desc}
+              contentStyles={styles.content}
               image={value.attributes.img}
               authorImage=""
               authorName={value.attributes.authors[0]}
               index={index + 1}
+              date={value.createdAt}
+              showPostImage={false}
             />
           )
         })}

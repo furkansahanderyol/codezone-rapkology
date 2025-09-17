@@ -1,11 +1,11 @@
 .container {
   text-decoration: none;
   color: var(--white);
+  position: relative;
 
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 3.4rem;
-  margin-bottom: 20px;
 
   .index {
     font-family: var(--font-saira-condensed);
@@ -35,25 +35,53 @@
     }
   }
 
+  .postImageSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 245px;
+
+    .postImage {
+      position: relative;
+      width: 300px;
+      height: 196px;
+    }
+
+    .date {
+      font-family: var(--font-saira);
+      font-weight: 400;
+      color: var(--date-text);
+    }
+  }
+
   .wrapper {
     display: flex;
     flex-direction: column;
     gap: 1.125rem;
+    gap: 30px;
 
-    .contentWrapper {
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border);
+    .postInformation {
+      display: flex;
+      flex-direction: column;
+      gap: 1.875rem;
 
-      .content {
-        font-family: var(--font-saira-condensed);
-        font-size: 1.56rem;
-        font-weight: 700;
+      .contentWrapper {
+        padding-bottom: 1.875rem;
+        border-bottom: 1px solid var(--border);
 
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        .content {
+          font-family: var(--font-saira-condensed);
+          font-size: 1.56rem;
+          font-weight: 700;
+          max-width: 400;
+          line-height: 104%;
+
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
     }
 

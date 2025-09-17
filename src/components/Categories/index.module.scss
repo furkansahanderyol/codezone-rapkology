@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .header {
+    font-family: var(--font-saira-condensed);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 104%;
+    color: var(--white);
+    width: 90%;
+  }
+
+  .categories {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+    cursor: pointer;
+
+    .category {
+      font-family: var(--font-saira);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      padding: 0.625rem 1.25rem;
+      border: 1px solid var(--border);
+      width: fit-content;
+      white-space: nowrap;
+      line-height: 104%;
+
+      &.selected {
+        background-color: var(--yellow);
+        color: var(--background);
+      }
+    }
+  }
+}

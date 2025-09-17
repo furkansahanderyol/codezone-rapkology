@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .authorImage {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10px;
+    overflow: clip;
+  }
+
+  .authorName {
+    font-family: var(--font-saira);
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 1.5%;
+    color: var(--white);
+  }
+}
