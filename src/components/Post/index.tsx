@@ -53,9 +53,7 @@ export default function Post({
           />
 
           <div className={styles.contentWrapper}>
-            <div
-              className={clsx(styles.content, contentStyles && contentStyles)}
-            >
+            <div className={clsx(styles.content, contentStyles)}>
               {description}
             </div>
           </div>

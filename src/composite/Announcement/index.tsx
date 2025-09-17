@@ -17,7 +17,7 @@ export default function Announcement() {
             fill
             alt=""
             className={styles.background}
-            objectFit="cover"
+            objectFit="contain"
           />
         </div>
         <div className={styles.announcement}>
@@ -52,10 +52,10 @@ export default function Announcement() {
           </div>
           <div className={styles.artistImages}>
             <div className={clsx(styles.artistImage, styles.artistFirst)}>
-              <Image src={"/artist-1.webp"} alt="" fill />
+              <Image src={"/artist-1.webp"} objectFit="cover" alt="" fill />
             </div>
             <div className={clsx(styles.artistImage, styles.artistSecond)}>
-              <Image src={"/artist-2.webp"} alt="" fill />
+              <Image src={"/artist-2.webp"} objectFit="cover" alt="" fill />
             </div>
           </div>
         </div>

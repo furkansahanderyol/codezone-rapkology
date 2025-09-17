@@ -1,4 +1,4 @@
-import { Swiper } from "swiper/react"
+import { Swiper, SwiperRef, useSwiper } from "swiper/react"
 
 import "swiper/css"
 import "swiper/css/pagination"
@@ -9,8 +9,9 @@ import styles from "./index.module.scss"
 import { Autoplay, Pagination, Scrollbar, Thumbs } from "swiper/modules"
 import { IconArrowLeft } from "@/assets/IconArrowLeft"
 import { IconArrowRight } from "@/assets/IconArrowRight"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Swiper as SwiperType } from "swiper"
+import { SwiperOptions } from "swiper/types"
 
 interface IProps {
   spaceBetween?: number
@@ -23,6 +24,7 @@ interface IProps {
   arrows?: boolean
   scrollbar?: boolean
   pagination?: boolean
+  breakpoints?: { [width: number]: SwiperOptions }
 }
 
 export default function SwiperContainer({
@@ -36,7 +38,9 @@ export default function SwiperContainer({
   arrows,
   scrollbar,
   pagination,
+  breakpoints,
 }: IProps) {
+  const swiperS = useSwiper()
   const swiperRef = useRef<HTMLDivElement>(null)
   const [swiper, setSwiper] = useState<SwiperType | undefined>(undefined)
   const swiperModules = []
@@ -57,15 +61,37 @@ export default function SwiperContainer({
     swiperModules.push(Pagination)
   }
 
+  useEffect(() => {
+    // Swiper örneği mevcutsa
+    if (swiper) {
+      // Swiper'ı güncelle
+      swiper.update()
+    }
+  }, [swiper])
+
   return (
     <div className={styles.container}>
       <Swiper
         onSwiper={(swiper) => setSwiper(swiper)}
-        spaceBetween={spaceBetween}
-        slidesPerView={slidersPerView}
+        // spaceBetween={spaceBetween}
+        // slidesPerView={slidersPerView}
         loop={loop}
         modules={swiperModules}
         autoplay={{ delay: delay }}
+        // breakpoints={breakpoints}
+        breakpoints={{
+          1025: {
+            slidesPerView: 3,
+          },
+
+          768: {
+            slidesPerView: 2,
+          },
+
+          280: {
+            slidesPerView: 1,
+          },
+        }}
         pagination={{
           enabled: true,
           clickable: true,

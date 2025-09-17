@@ -6,13 +6,14 @@ import { selectedCategoryAtom } from "@/stores"
 interface IProps {
   header: string
   categories: { label: string; id: number }[]
+  className?: string
 }
 
-export default function Categories({ header, categories }: IProps) {
+export default function Categories({ header, categories, className }: IProps) {
   const [selectedCategory, setSelectedCategory] = useAtom(selectedCategoryAtom)
 
   return (
-    <div className={styles.container}>
+    <div className={clsx(styles.container, className)}>
       <div className={styles.header}>{header}</div>
       <div className={styles.categories}>
         {categories.map((category) => {

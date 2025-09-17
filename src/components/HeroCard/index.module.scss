@@ -1,12 +1,14 @@
 .container {
+  background-image: url("/hero-image-1.webp");
   background-size: cover;
-  background-position: center;
+  background-position: -200px;
   background-repeat: no-repeat;
-  height: 90vh;
+  height: 100vh;
   position: relative;
   display: flex;
   justify-content: flex-end;
   position: relative;
+  overflow: hidden;
 
   font-family: var(--font-saira-condensed);
   color: var(--black);
@@ -39,6 +41,7 @@
       letter-spacing: -2%;
       width: 100%;
       user-select: none;
+      text-transform: uppercase;
     }
 
     .description {
@@ -65,6 +68,66 @@
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    justify-content: center;
+
+    .content {
+      width: 100%;
+      text-align: center;
+
+      .title {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .description {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    .readMoreWrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .readMore {
+        width: fit-content;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    .content {
+      .title {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    background-position: center bottom;
+
+    .backgroundImage {
+    }
+
+    .content {
+      padding: 3.5rem;
+      padding-top: 0;
+
+      .title {
+        font-size: 1.875rem;
       }
     }
   }

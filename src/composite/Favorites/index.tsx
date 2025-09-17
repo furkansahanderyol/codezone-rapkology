@@ -26,7 +26,23 @@ export default function Favorites() {
       <div className={styles.wrapper}>
         <div className={styles.header}>Ayın Favorileri</div>
         <div className={styles.swiperWrapper}>
-          <SwiperContainer slidersPerView={3} scrollbar pagination={false}>
+          <SwiperContainer
+            scrollbar
+            pagination={false}
+            // breakpoints={{
+            //   1200: {
+            //     slidesPerView: 3,
+            //   },
+
+            //   1024: {
+            //     slidesPerView: 2,
+            //   },
+
+            //   280: {
+            //     slidesPerView: 1,
+            //   },
+            // }}
+          >
             {data?.map((value) => {
               return (
                 <SwiperSlide className={styles.swiper} key={value._id}>

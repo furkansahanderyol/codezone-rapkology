@@ -23,7 +23,7 @@ export default function Trends() {
         TRENDLER <IconIncrease />
       </div>
       <div className={styles.grid}>
-        {trends?.map((value, index) => {
+        {data?.map((value, index) => {
           if (limitVisibleCards && index > 5) return
 
           return (

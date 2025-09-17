@@ -78,3 +78,27 @@
     background-color: var(--weak-text);
   }
 }
+
+@media (max-width: 1080px) {
+  .container {
+    .arrows {
+      padding: 4rem 2rem;
+    }
+
+    .customScrollbar {
+      max-width: 100%;
+      width: 100%;
+      background-color: var(--weak-text);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    .customScrollbar {
+      max-width: 100%;
+      width: 100%;
+      background-color: var(--weak-text);
+    }
+  }
+}

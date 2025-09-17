@@ -2,6 +2,7 @@ import styles from "./index.module.scss"
 import Link from "next/link"
 import { IconLogo } from "@/assets/IconLogo"
 import { IconSearch } from "@/assets/IconSearch"
+import { IconMenu } from "@/assets/IconMenu"
 
 const NAVIGATION_VALUES = [
   {
@@ -44,6 +45,9 @@ export default function Navbar() {
         </ul>
       </nav>
       <div className={styles.rightSide}>
+        <div className={styles.menu}>
+          <IconMenu width={30} height={10} />
+        </div>
         <div className={styles.search}>
           <IconSearch width={23} height={22} />
         </div>

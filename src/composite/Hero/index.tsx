@@ -51,7 +51,6 @@ export default function Hero() {
         slidersPerView={1}
         spaceBetween={3}
         loop={true}
-        autoPlay
         delay={10000}
         thumbs={true}
         arrows

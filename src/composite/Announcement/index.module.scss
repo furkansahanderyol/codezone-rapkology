@@ -11,14 +11,15 @@
     .backgroundImagesWrapper {
       max-width: 100%;
       width: 100%;
-      height: 700px;
+      height: 520px;
+      scale: 1.8;
       top: 0;
       left: 0;
       overflow: hidden;
       position: absolute;
 
       .background {
-        object-position: bottom center;
+        object-position: center center;
         transform: rotateY(180deg);
       }
     }
@@ -30,7 +31,6 @@
       justify-content: flex-end;
       gap: 20px;
       min-height: 640px;
-      padding-bottom: 5rem;
 
       .artistImages {
         position: relative;
@@ -38,6 +38,7 @@
         justify-content: space-between;
         align-items: flex-end;
         pointer-events: none;
+        padding-top: 10rem;
 
         .artistImage {
           position: relative;
@@ -53,7 +54,7 @@
         align-items: center;
         position: absolute;
         left: 50%;
-        top: 0%;
+        top: 15%;
         transform: translateX(-50%) rotate(-4deg);
 
         .upperSide {
@@ -70,7 +71,7 @@
               height: 80%;
               background-color: var(--border);
               top: 50%;
-              right: 0;
+              right: 5%;
               transform: translateY(-50%);
             }
           }
@@ -145,6 +146,132 @@
     left: 0;
     bottom: 0px;
     width: 100%;
-    height: 300px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    .content {
+      .announcement {
+        .announcementInformation {
+          top: 5%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+  .container {
+    .content {
+      margin: 3.75rem 0;
+
+      .announcement {
+        .artistImages {
+          .artistImage {
+            max-width: 360px;
+
+            &:last-child {
+              transform: translateX(20%);
+            }
+          }
+        }
+
+        .announcementInformation {
+          top: 5%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    .content {
+      margin: 3.75rem 0;
+
+      .backgroundImagesWrapper {
+        max-width: 100%;
+        width: 100%;
+        height: 550px;
+        scale: 2.5;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+
+        .background {
+          object-position: center center;
+          transform: rotateY(180deg);
+        }
+      }
+
+      .announcement {
+        padding-bottom: 0;
+        .artistImages {
+          .artistImage {
+            max-width: 281px;
+            height: 293px;
+          }
+        }
+
+        .announcementInformation {
+          top: 20%;
+
+          gap: 13px;
+
+          .upperSide {
+            .leftSide {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              svg {
+                width: 107px;
+                height: 66px;
+                scale: 1.7;
+              }
+
+              &::before {
+                height: 155%;
+                right: -4%;
+              }
+            }
+
+            .rightSide {
+              padding-left: 1rem;
+
+              .regular {
+                font-size: 46px;
+              }
+
+              .highlighted {
+                font-size: 46px;
+              }
+
+              .followUs {
+                font-size: 10.85px;
+              }
+            }
+          }
+
+          .bottomSide {
+            gap: 10px;
+            padding: 0.5rem;
+
+            .channelLink {
+              padding: 0.25rem 0.5rem;
+              font-size: 16px;
+
+              svg {
+                width: 12px;
+                height: 11px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

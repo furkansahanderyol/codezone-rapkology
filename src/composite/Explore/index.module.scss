@@ -2,7 +2,7 @@
   padding: 3.75rem 5rem;
   display: grid;
   grid-template-columns: 3fr 2fr;
-  gap: 8rem;
+  column-gap: 8rem;
 
   .leftSide {
     display: flex;
@@ -57,7 +57,7 @@
           font-size: 1.56rem;
           font-size: 25px;
           font-weight: 700;
-          max-width: 400;
+          max-width: 400px;
           line-height: 104%;
           display: -webkit-box;
           -webkit-box-orient: vertical;
@@ -79,6 +79,89 @@
     .sticky {
       position: sticky;
       top: 105px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media (max-width: 1180px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    position: relative;
+
+    .leftSide {
+      width: 100%;
+      position: relative;
+
+      .list {
+        width: 100%;
+        position: relative;
+
+        .postContainer {
+          width: 100%;
+          position: relative;
+          max-width: 100%;
+          grid-template-columns: min-content auto;
+
+          .postContent {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+
+    .rightSide {
+      .sticky {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    position: relative;
+
+    .leftSide {
+      width: 100%;
+      position: relative;
+
+      .list {
+        width: 100%;
+        position: relative;
+
+        .postContainer {
+          width: 100%;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .postContent {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+
+    .rightSide {
+      .sticky {
+        display: none;
+      }
     }
   }
 }

@@ -64,7 +64,11 @@ export default function Explore() {
       </div>
 
       <div className={styles.rightSide}>
-        <Categories header="Ne Görmek İstersin?" categories={CATEGORIES} />
+        <Categories
+          className={styles.categories}
+          header="Ne Görmek İstersin?"
+          categories={CATEGORIES}
+        />
 
         <div className={styles.sticky}>
           <ContactForm
