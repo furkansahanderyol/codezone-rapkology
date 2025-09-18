@@ -11,17 +11,10 @@ export default function Announcement() {
   return (
     <section className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.backgroundImagesWrapper}>
-          <Image
-            src={"/announcement-background.webp"}
-            fill
-            alt=""
-            className={styles.background}
-            objectFit="contain"
-          />
-        </div>
+        <div className={styles.backgroundImagesWrapper} />
         <div className={styles.announcement}>
           <div className={styles.announcementInformation}>
+            <div className={styles.test} />
             <div className={styles.upperSide}>
               <div className={styles.leftSide}>
                 <IconTwitch />

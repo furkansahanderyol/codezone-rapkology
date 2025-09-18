@@ -4,30 +4,28 @@ import Link from "next/link"
 import Image from "next/image"
 
 interface IProps {
+  id: number
   title: string
   description: string
   image: string
   dark: boolean
 }
 
-export default function HeroCard({ title, description, image, dark }: IProps) {
+export default function HeroCard({
+  id,
+  title,
+  description,
+  image,
+  dark,
+}: IProps) {
   return (
-    <div
-      className={clsx(styles.container, dark && styles.dark)}
-      // style={{
-      //   backgroundImage: `url(${image})`,
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundSize: "contain",
-      // }}
-    >
-      {/* <Image
-        objectFit="cover"
-        objectPosition="center center"
+    <div className={clsx(styles.container, dark && styles.dark)}>
+      <Image
         src={image}
         fill
-        className={styles.backgroundImage}
+        className={clsx(styles.backgroundImage, id === 0 && styles.firstImage)}
         alt=""
-      /> */}
+      />
       <div className={styles.content}>
         <div className={styles.title}>{title}</div>
         <div className={styles.description}>{description}</div>

@@ -9,6 +9,7 @@ import FavoriteCard from "@/components/FavoriteCard"
 import Link from "next/link"
 import { IconYoutubeLogo } from "@/assets/IconYoutubeLogo"
 import { IconSpotifyLogo } from "@/assets/IconSpotifyLogo"
+import SectionHeader from "@/components/SectionHeader"
 
 export default function Favorites() {
   const [data] = useAtom(dataAtom)
@@ -24,25 +25,9 @@ export default function Favorites() {
         </Link>
       </div>
       <div className={styles.wrapper}>
-        <div className={styles.header}>Ayın Favorileri</div>
+        <SectionHeader className={styles.header} header="Ayın Favorileri" />
         <div className={styles.swiperWrapper}>
-          <SwiperContainer
-            scrollbar
-            pagination={false}
-            // breakpoints={{
-            //   1200: {
-            //     slidesPerView: 3,
-            //   },
-
-            //   1024: {
-            //     slidesPerView: 2,
-            //   },
-
-            //   280: {
-            //     slidesPerView: 1,
-            //   },
-            // }}
-          >
+          <SwiperContainer scrollbar pagination={false}>
             {data?.map((value) => {
               return (
                 <SwiperSlide className={styles.swiper} key={value._id}>

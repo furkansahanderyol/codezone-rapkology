@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.375rem;
 
   .header {
     font-family: var(--font-saira-condensed);
@@ -10,6 +10,7 @@
     line-height: 104%;
     color: var(--white);
     width: 90%;
+    text-transform: uppercase;
   }
 
   .categories {
@@ -34,6 +35,14 @@
         background-color: var(--yellow);
         color: var(--background);
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    .header {
+      font-size: 1.875rem;
     }
   }
 }

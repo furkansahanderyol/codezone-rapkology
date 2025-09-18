@@ -38,16 +38,7 @@
     align-items: center;
 
     .header {
-      font-family: var(--font-saira-condensed);
-      font-size: 3.75rem;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.5;
       max-height: calc(1.5em * 2);
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
       padding: 0 5rem;
       max-width: 25%;
     }
@@ -63,6 +54,7 @@
     .wrapper {
       display: flex;
       flex-direction: column;
+      gap: 3.18rem;
 
       .header {
         max-width: 40%;
@@ -78,6 +70,7 @@
 
     .wrapper {
       .swiperWrapper {
+        max-width: 100%;
         width: 100%;
       }
     }
@@ -86,18 +79,33 @@
 
 @media (max-width: 768px) {
   .container {
-    padding: 5rem 3.75rem;
+    padding: 0;
+
+    .labels {
+      max-width: 376px;
+      width: 100%;
+      padding-left: 4.25rem;
+      padding-right: 50px;
+      padding-top: 1.5rem;
+
+      svg {
+        width: 111px;
+        height: 33px;
+      }
+    }
 
     .wrapper {
       .header {
-        max-width: 100%;
+        max-width: 60%;
         text-align: center;
         padding: 0;
       }
 
       .swiperWrapper {
-        max-width: 272px;
-        width: 100%;
+        padding-left: 78px;
+        .swiper {
+          width: fit-content;
+        }
       }
     }
   }

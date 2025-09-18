@@ -96,9 +96,15 @@
 @media (max-width: 768px) {
   .container {
     .customScrollbar {
-      max-width: 100%;
+      max-width: 90%;
       width: 100%;
+      left: 50%;
+      transform: translateX(-60%);
       background-color: var(--weak-text);
+    }
+
+    .arrows {
+      display: none;
     }
   }
 }

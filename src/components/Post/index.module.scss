@@ -10,7 +10,7 @@
   .index {
     font-family: var(--font-saira-condensed);
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 3.75rem;
     color: var(--weak-text);
     transition: color 0.2s ease-in-out;
     height: fit-content;
@@ -129,6 +129,26 @@
       width: 100%;
       .postImage {
         width: 100%;
+      }
+    }
+
+    .wrapper {
+      .postInformation {
+        .contentWrapper {
+          padding-bottom: 1.25rem;
+          .content {
+            font-size: 1.25rem;
+          }
+        }
+      }
+
+      .readMore {
+        font-size: 0.875rem;
+
+        svg {
+          width: 0.75rem;
+          height: 0.75rem;
+        }
       }
     }
   }

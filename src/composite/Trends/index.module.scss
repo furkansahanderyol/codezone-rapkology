@@ -4,20 +4,6 @@
   gap: 5.5rem;
   padding: 5rem;
 
-  .header {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    font-family: var(--font-saira-condensed);
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--white);
-
-    svg {
-      color: var(--yellow);
-    }
-  }
-
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -72,15 +58,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    .header {
-      font-size: 40px;
-
-      svg {
-        width: 41px;
-        height: 24px;
-      }
-    }
 
     .grid {
       width: 100%;

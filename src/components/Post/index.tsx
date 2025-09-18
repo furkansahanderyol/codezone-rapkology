@@ -16,6 +16,7 @@ interface IProps {
   date: string
   containerStyles?: string
   contentStyles?: string
+  wrapperStyles?: string
 }
 
 export default function Post({
@@ -29,6 +30,7 @@ export default function Post({
   showPostImage,
   containerStyles,
   contentStyles,
+  wrapperStyles,
 }: IProps) {
   return (
     <Link href={"#"} className={clsx(styles.container, containerStyles)}>
@@ -43,7 +45,7 @@ export default function Post({
           <div className={styles.date}>{date}</div>
         </div>
       )}
-      <div className={styles.wrapper}>
+      <div className={clsx(styles.wrapper, wrapperStyles)}>
         <div className={styles.postInformation}>
           <AuthorInformation
             url={image}

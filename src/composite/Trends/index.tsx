@@ -8,6 +8,7 @@ import TrendCard from "@/components/TrendCard"
 import { useMemo, useState } from "react"
 import SkewedButton from "@/components/SkewedButton"
 import Post from "@/components/Post"
+import SectionHeader from "@/components/SectionHeader"
 
 export default function Trends() {
   const [data] = useAtom(dataAtom)
@@ -19,9 +20,10 @@ export default function Trends() {
 
   return (
     <section className={styles.container}>
-      <div className={styles.header}>
+      <SectionHeader header="Trendler" suffix={<IconIncrease />} />
+      {/* <div className={styles.header}>
         TRENDLER <IconIncrease />
-      </div>
+      </div> */}
       <div className={styles.grid}>
         {data?.map((value, index) => {
           if (limitVisibleCards && index > 5) return

@@ -10,24 +10,27 @@
     gap: 6rem;
     flex-grow: 3;
 
-    .headerWrapper {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .header {
+    .leftSideUpper {
+      .headerWrapper {
+        width: 100%;
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 1.5rem;
-        font-family: var(--font-saira-condensed);
-        font-weight: bold;
-        font-size: 3.75rem;
-        color: var(--white);
 
-        svg {
-          color: var(--yellow);
+        .header {
+          display: flex;
+          align-items: center;
+          gap: 1.56rem;
+
+          svg {
+            width: 53px;
+            height: 53px;
+          }
         }
+      }
+
+      .categoriesResponsive {
+        display: none;
       }
     }
 
@@ -37,6 +40,14 @@
       gap: 1.5rem;
       color: var(--white);
       cursor: pointer;
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 19px;
+      }
     }
 
     .list {
@@ -95,6 +106,7 @@
     flex-direction: column;
     flex-direction: column-reverse;
     position: relative;
+    padding: 5rem 2.5rem;
 
     .leftSide {
       width: 100%;
@@ -133,14 +145,43 @@
     flex-direction: column;
     flex-direction: column-reverse;
     position: relative;
+    padding: 5rem 1.25rem;
 
     .leftSide {
       width: 100%;
       position: relative;
 
+      .leftSideUpper {
+        display: flex;
+        flex-direction: column;
+        gap: 2.6rem;
+
+        .categoriesResponsive {
+          display: flex;
+        }
+
+        .headerWrapper {
+          .header {
+            gap: 0.93rem;
+            svg {
+              width: 42px;
+              height: 42px;
+            }
+          }
+        }
+      }
+
+      .buttons {
+        .icon {
+          width: 19px;
+          height: 19px;
+        }
+      }
+
       .list {
         width: 100%;
         position: relative;
+        gap: 3.75rem;
 
         .postContainer {
           width: 100%;
@@ -148,17 +189,24 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+          gap: 1.25rem;
 
           .postContent {
             position: relative;
             width: 100%;
             max-width: 100%;
+            font-size: 1.25rem;
+          }
+
+          .wrapperSpace {
+            gap: 20px;
           }
         }
       }
     }
 
     .rightSide {
+      .categories,
       .sticky {
         display: none;
       }

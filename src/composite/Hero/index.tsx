@@ -60,6 +60,7 @@ export default function Hero() {
           return (
             <SwiperSlide key={card.id}>
               <HeroCard
+                id={card.id}
                 title={card.title}
                 description={card.description}
                 image={card.image}

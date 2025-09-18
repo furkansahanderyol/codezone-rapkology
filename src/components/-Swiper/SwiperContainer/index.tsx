@@ -1,4 +1,4 @@
-import { Swiper, SwiperRef, useSwiper } from "swiper/react"
+import { Swiper, useSwiper } from "swiper/react"
 
 import "swiper/css"
 import "swiper/css/pagination"
@@ -62,9 +62,7 @@ export default function SwiperContainer({
   }
 
   useEffect(() => {
-    // Swiper örneği mevcutsa
     if (swiper) {
-      // Swiper'ı güncelle
       swiper.update()
     }
   }, [swiper])
@@ -79,19 +77,33 @@ export default function SwiperContainer({
         modules={swiperModules}
         autoplay={{ delay: delay }}
         // breakpoints={breakpoints}
-        breakpoints={{
-          1025: {
-            slidesPerView: 3,
-          },
+        breakpoints={
+          scrollbar
+            ? {
+                1025: {
+                  slidesPerView: 3,
+                },
 
-          768: {
-            slidesPerView: 2,
-          },
+                768: {
+                  slidesPerView: 3,
+                },
 
-          280: {
-            slidesPerView: 1,
-          },
-        }}
+                580: {
+                  slidesPerView: 2,
+                },
+
+                400: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 40,
+                },
+
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 0,
+                },
+              }
+            : undefined
+        }
         pagination={{
           enabled: true,
           clickable: true,

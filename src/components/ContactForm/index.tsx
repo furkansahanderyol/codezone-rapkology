@@ -21,7 +21,6 @@ export default function ContactForm({
 }: IProps) {
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    console.log("form submitted")
   }
 
   return (
