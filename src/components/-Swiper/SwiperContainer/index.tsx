@@ -1,17 +1,25 @@
-import { Swiper, useSwiper } from "swiper/react"
+import { Swiper } from "swiper/react"
 
 import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
 import "swiper/css/autoplay"
 import "swiper/css/scrollbar"
+import "swiper/css/effect-coverflow"
 import styles from "./index.module.scss"
-import { Autoplay, Pagination, Scrollbar, Thumbs } from "swiper/modules"
+import {
+  Autoplay,
+  Pagination,
+  Scrollbar,
+  Thumbs,
+  EffectCoverflow,
+} from "swiper/modules"
 import { IconArrowLeft } from "@/assets/IconArrowLeft"
 import { IconArrowRight } from "@/assets/IconArrowRight"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { Swiper as SwiperType } from "swiper"
 import { SwiperOptions } from "swiper/types"
+import { useAtom } from "jotai"
 
 interface IProps {
   spaceBetween?: number
@@ -23,8 +31,18 @@ interface IProps {
   thumbs?: boolean
   arrows?: boolean
   scrollbar?: boolean
-  pagination?: boolean
+  pagination?: {
+    el: string | HTMLElement | undefined | null
+  }
   breakpoints?: { [width: number]: SwiperOptions }
+  effectCoverflow?: boolean
+  coverflowOptions?: {
+    rotate: number
+    stretch: number
+    depth: number
+    modifier: number
+    slideShadows: boolean
+  }
 }
 
 export default function SwiperContainer({
@@ -39,8 +57,9 @@ export default function SwiperContainer({
   scrollbar,
   pagination,
   breakpoints,
+  effectCoverflow,
+  coverflowOptions,
 }: IProps) {
-  const swiperS = useSwiper()
   const swiperRef = useRef<HTMLDivElement>(null)
   const [swiper, setSwiper] = useState<SwiperType | undefined>(undefined)
   const swiperModules = []
@@ -61,22 +80,21 @@ export default function SwiperContainer({
     swiperModules.push(Pagination)
   }
 
-  useEffect(() => {
-    if (swiper) {
-      swiper.update()
-    }
-  }, [swiper])
+  if (effectCoverflow) {
+    swiperModules.push(EffectCoverflow)
+  }
 
   return (
     <div className={styles.container}>
       <Swiper
-        onSwiper={(swiper) => setSwiper(swiper)}
-        // spaceBetween={spaceBetween}
-        // slidesPerView={slidersPerView}
+        spaceBetween={spaceBetween}
+        slidesPerView={slidersPerView}
         loop={loop}
         modules={swiperModules}
         autoplay={{ delay: delay }}
         // breakpoints={breakpoints}
+        coverflowEffect={coverflowOptions}
+        effect={effectCoverflow ? "coverflow" : "slide"}
         breakpoints={
           scrollbar
             ? {
@@ -104,10 +122,19 @@ export default function SwiperContainer({
               }
             : undefined
         }
-        pagination={{
-          enabled: true,
-          clickable: true,
-        }}
+        // pagination={{
+        //   enabled: true,
+        //   clickable: true,
+        // }}
+        pagination={
+          pagination
+            ? {
+                enabled: true,
+                clickable: true,
+                el: pagination.el,
+              }
+            : false
+        }
         scrollbar={{
           el: swiperRef.current,
           hide: false,

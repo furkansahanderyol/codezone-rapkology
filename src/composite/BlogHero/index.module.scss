@@ -1,0 +1,172 @@
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    background-image: url("/blog-bg-icon.webp");
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-position: 100% 0px;
+    background-size: contain;
+    background-color: var(--yellow);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("/blog-hero-background.webp") center/cover no-repeat;
+      opacity: 0.2;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  .wrapper {
+    padding: 4.6rem 5rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .titleWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2.125rem;
+
+      .breadCrumbs {
+        text-align: flex-start;
+        font-family: var(--font-saira);
+        font-weight: 400;
+        font-size: 0.875rem;
+      }
+
+      .title {
+        font-family: var(--font-saira-condensed);
+        font-weight: 700;
+        font-size: 3.75rem;
+        line-height: 89%;
+        color: var(--background);
+      }
+    }
+
+    .content {
+      // display: flex;
+      // align-items: flex-start;
+      // gap: 1.375rem;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.375rem;
+
+      .sliderSide {
+        width: 100%;
+        position: relative;
+        max-width: 738px;
+        z-index: 2;
+        position: relative;
+
+        .swiperItemWrapper {
+          position: relative;
+          width: 738px;
+          position: relative;
+
+          .swiperItem {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+            position: relative;
+            text-decoration: none;
+
+            .postImageWrapper {
+              position: relative;
+              width: 738px;
+              height: 430px;
+
+              .postImage {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+              }
+            }
+
+            .postTitle {
+              font-family: var(--font-saira-condensed);
+              font-weight: 700;
+              font-size: 1.56rem;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              color: var(--background);
+              letter-spacing: 0%;
+              padding-left: 2.875rem;
+              max-width: 523px;
+            }
+          }
+        }
+
+        .customPaginationContainer {
+          position: absolute;
+          bottom: 70px;
+          right: 0;
+          height: 50px;
+          z-index: 100;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          :global(.swiper-pagination-bullet) {
+            background-color: red;
+          }
+
+          :global(.swiper-pagination-bullet-active) {
+            background-color: black;
+          }
+        }
+      }
+
+      .recommendationsSide {
+        display: flex;
+        flex-direction: column;
+        gap: 1.875rem;
+
+        .recommendedPost {
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+
+          .imageWrapper {
+            position: relative;
+            max-width: 174px;
+            width: 100%;
+            height: 104px;
+
+            img {
+              object-fit: cover;
+            }
+          }
+
+          .description {
+            font-family: var(--font-saira-condensed);
+            font-weight: 700;
+            font-size: 1.56rem;
+            line-height: 104%;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}

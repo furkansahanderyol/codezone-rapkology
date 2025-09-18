@@ -6,7 +6,7 @@ import HeroCard from "@/components/HeroCard"
 import { DataService } from "@/services/data"
 import { dataAtom, loadingAtom } from "@/stores"
 import { useAtom } from "jotai"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { SwiperSlide } from "swiper/react"
 import Image from "next/image"
 
@@ -33,6 +33,8 @@ export default function Hero() {
   const [, setDataAtom] = useAtom(dataAtom)
   const [, setLoading] = useAtom(loadingAtom)
 
+  const heroPaginationRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     setLoading(true)
 
@@ -49,8 +51,7 @@ export default function Hero() {
     <section className={styles.container}>
       <SwiperContainer
         slidersPerView={1}
-        spaceBetween={3}
-        loop={true}
+        pagination={{ el: heroPaginationRef.current }}
         delay={10000}
         thumbs={true}
         arrows
@@ -73,6 +74,18 @@ export default function Hero() {
       <div className={styles.heroVector}>
         <Image src={"/vector.webp"} fill alt="" objectFit="cover" />
       </div>
+      {/* <div
+        ref={heroPaginationRef}
+        className={`${styles.customPaginationContainer} swiper-pagination`}
+        style={{
+          position: "absolute",
+          width: "200px",
+          top: "50%",
+          left: "50%",
+          backgroundColor: "red",
+          zIndex: 50,
+        }}
+      ></div> */}
     </section>
   )
 }
