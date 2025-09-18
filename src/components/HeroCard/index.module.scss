@@ -6,6 +6,12 @@
   position: relative;
   overflow: hidden;
 
+  .shape {
+    z-index: 2;
+    mix-blend-mode: multiply;
+    opacity: 20%;
+  }
+
   .backgroundImage {
     object-fit: cover;
     object-position: -220px;
@@ -75,6 +81,12 @@
         justify-content: center;
         align-items: center;
       }
+    }
+
+    .customPaginationContainer {
+      background-color: red;
+      width: 200px;
+      height: 200px;
     }
   }
 }

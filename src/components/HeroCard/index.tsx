@@ -18,11 +18,22 @@ export default function HeroCard({
   image,
   dark,
 }: IProps) {
+  console.log("id", id)
   return (
     <div className={clsx(styles.container, dark && styles.dark)}>
+      {id === 0 && (
+        <Image
+          className={styles.shape}
+          fill
+          src={"/blog-hero-background.webp"}
+          alt=""
+          priority
+        />
+      )}
       <Image
         src={image}
         fill
+        priority
         className={clsx(styles.backgroundImage, id === 0 && styles.firstImage)}
         alt=""
       />

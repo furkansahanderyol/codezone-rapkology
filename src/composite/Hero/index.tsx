@@ -49,6 +49,10 @@ export default function Hero() {
 
   return (
     <section className={styles.container}>
+      {/* <div
+        ref={heroPaginationRef}
+        className={styles.customPaginationContainer}
+      /> */}
       <SwiperContainer
         slidersPerView={1}
         pagination={{ el: heroPaginationRef.current }}
@@ -74,18 +78,10 @@ export default function Hero() {
       <div className={styles.heroVector}>
         <Image src={"/vector.webp"} fill alt="" objectFit="cover" />
       </div>
-      {/* <div
+      <div
         ref={heroPaginationRef}
-        className={`${styles.customPaginationContainer} swiper-pagination`}
-        style={{
-          position: "absolute",
-          width: "200px",
-          top: "50%",
-          left: "50%",
-          backgroundColor: "red",
-          zIndex: 50,
-        }}
-      ></div> */}
+        className={styles.customPaginationContainer}
+      />
     </section>
   )
 }

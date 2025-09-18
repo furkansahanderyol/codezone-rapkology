@@ -57,10 +57,6 @@
     }
 
     .content {
-      // display: flex;
-      // align-items: flex-start;
-      // gap: 1.375rem;
-
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.375rem;
@@ -107,6 +103,7 @@
               text-overflow: ellipsis;
               color: var(--background);
               letter-spacing: 0%;
+              line-height: 104%;
               padding-left: 2.875rem;
               max-width: 523px;
             }
@@ -124,11 +121,15 @@
           align-items: center;
 
           :global(.swiper-pagination-bullet) {
-            background-color: red;
+            background-color: var(--yellow-weak);
+            width: 8.5px;
+            height: 8.5px;
           }
 
           :global(.swiper-pagination-bullet-active) {
-            background-color: black;
+            background-color: var(--background);
+            width: 15.15px;
+            height: 15.15px;
           }
         }
       }
@@ -167,6 +168,30 @@
           }
         }
       }
+    }
+  }
+
+  .blogHeroShape {
+    width: 100vw;
+    position: absolute;
+    height: 150px;
+    bottom: -65px;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 5000;
+
+    .firstVector {
+      width: 50%;
+      position: absolute;
+      right: 0;
+    }
+
+    .secondVector {
+      max-width: 50%;
+      object-fit: cover;
+      position: relative;
+      left: 0;
     }
   }
 }

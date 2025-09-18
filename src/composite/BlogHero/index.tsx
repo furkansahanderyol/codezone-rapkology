@@ -65,6 +65,7 @@ export default function BlogHero() {
                             className={styles.postImage}
                             src={value.attributes.img}
                             fill
+                            priority
                             alt=""
                           />
                         </div>
@@ -105,7 +106,20 @@ export default function BlogHero() {
           </div>
         </div>
       </div>
-      <div className={styles.blogHeroShape}>bg</div>
+      <div className={styles.blogHeroShape}>
+        <Image
+          src={"/vector-2.webp"}
+          className={styles.firstVector}
+          fill
+          alt=""
+        />
+        <Image
+          src={"/vector.webp"}
+          fill
+          alt=""
+          className={styles.secondVector}
+        />
+      </div>
     </div>
   )
 }
