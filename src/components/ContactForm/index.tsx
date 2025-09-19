@@ -10,12 +10,14 @@ import { IconRapkologyLogo } from "@/assets/IconRapkologyLogo"
 
 interface IProps {
   configuration: "footer" | "body"
+  className?: string
   header: string
   socialLinks: { logo: React.ReactNode; link: string }[]
 }
 
 export default function ContactForm({
   configuration,
+  className,
   header,
   socialLinks,
 }: IProps) {
@@ -27,6 +29,7 @@ export default function ContactForm({
     <form
       className={clsx(
         styles.container,
+        className,
         configuration === "footer" && styles.footerContainer
       )}
     >

@@ -13,12 +13,13 @@ import Categories from "@/components/Categories"
 import { CATEGORIES } from "@/constants/categories"
 import { SOCIAL_LINKS } from "@/constants/socialLinks"
 import SectionHeader from "@/components/SectionHeader"
+import SectionLayout from "@/layouts/SectionLayout"
 
 export default function Explore() {
   const [data] = useAtom(dataAtom)
 
   return (
-    <section className={styles.container}>
+    <SectionLayout className={styles.container}>
       <div className={styles.leftSide}>
         <div className={styles.leftSideUpper}>
           <Categories
@@ -31,19 +32,20 @@ export default function Explore() {
               className={styles.header}
               header="Keşfet"
               suffix={<IconCompass width={53} height={53} />}
+              options={
+                <div className={styles.buttons}>
+                  <div className={styles.icon}>
+                    <IconSearch width={24} height={24} />
+                  </div>
+                  <div className={styles.icon}>
+                    <IconList width={24} height={24} />
+                  </div>
+                  <div className={styles.icon}>
+                    <IconGrid width={24} height={24} />
+                  </div>
+                </div>
+              }
             />
-
-            <div className={styles.buttons}>
-              <div className={styles.icon}>
-                <IconSearch width={24} height={24} />
-              </div>
-              <div className={styles.icon}>
-                <IconList width={24} height={24} />
-              </div>
-              <div className={styles.icon}>
-                <IconGrid width={24} height={24} />
-              </div>
-            </div>
           </div>
         </div>
 
@@ -83,6 +85,6 @@ export default function Explore() {
           />
         </div>
       </div>
-    </section>
+    </SectionLayout>
   )
 }

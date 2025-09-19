@@ -17,6 +17,7 @@ interface IProps {
   containerStyles?: string
   contentStyles?: string
   wrapperStyles?: string
+  vertical?: boolean
 }
 
 export default function Post({
@@ -31,40 +32,80 @@ export default function Post({
   containerStyles,
   contentStyles,
   wrapperStyles,
+  vertical,
 }: IProps) {
-  return (
-    <Link href={"#"} className={clsx(styles.container, containerStyles)}>
-      {index && (
-        <div className={styles.index}>{index < 10 ? `0${index}` : index}</div>
-      )}
-      {showPostImage && (
-        <div className={styles.postImageSide}>
-          <div className={styles.postImage}>
-            <Image src={image} fill objectFit="cover" alt="" />
+  {
+    return !vertical ? (
+      <Link href={"#"} className={clsx(styles.container, containerStyles)}>
+        {index && (
+          <div className={styles.index}>{index < 10 ? `0${index}` : index}</div>
+        )}
+        {showPostImage && (
+          <div className={styles.postImageSide}>
+            <div className={styles.postImage}>
+              <Image src={image} fill objectFit="cover" alt="" />
+            </div>
+            <div className={styles.date}>{date}</div>
           </div>
-          <div className={styles.date}>{date}</div>
-        </div>
-      )}
-      <div className={clsx(styles.wrapper, wrapperStyles)}>
-        <div className={styles.postInformation}>
-          <AuthorInformation
-            url={image}
-            alt=""
-            name={authorName}
-            objectFit="cover"
-          />
+        )}
+        <div className={clsx(styles.wrapper, wrapperStyles)}>
+          <div className={styles.postInformation}>
+            <AuthorInformation
+              url={image}
+              alt=""
+              name={authorName}
+              objectFit="cover"
+            />
 
-          <div className={styles.contentWrapper}>
-            <div className={clsx(styles.content, contentStyles)}>
-              {description}
+            <div className={styles.contentWrapper}>
+              <div className={clsx(styles.content, contentStyles)}>
+                {description}
+              </div>
+            </div>
+          </div>
+          <div className={styles.readMore}>
+            Devamını Oku
+            <IconArrowRight />
+          </div>
+        </div>
+      </Link>
+    ) : (
+      <Link href={"#"} className={clsx(styles.containerVertical)}>
+        <AuthorInformation
+          url={image}
+          alt=""
+          name={authorName}
+          objectFit="cover"
+        />
+        {index && (
+          <div className={styles.index}>{index < 10 ? `0${index}` : index}</div>
+        )}
+
+        <div className={styles.flex}>
+          {showPostImage && (
+            <div className={styles.postImageSide}>
+              <div className={styles.postImage}>
+                <Image src={image} fill objectFit="cover" alt="" />
+              </div>
+              <div className={styles.date}>{date}</div>
+            </div>
+          )}
+
+          <div className={clsx(styles.wrapper, wrapperStyles)}>
+            <div className={styles.postInformation}>
+              <div className={styles.contentWrapper}>
+                <div className={clsx(styles.content, contentStyles)}>
+                  {description}
+                </div>
+              </div>
+            </div>
+            <div className={styles.readMore}>
+              Daha Fazla Oku
+              <IconArrowRight />
             </div>
           </div>
         </div>
-        <div className={styles.readMore}>
-          Devamını Oku
-          <IconArrowRight />
-        </div>
-      </div>
-    </Link>
-  )
+      </Link>
+    )
+  }
 }

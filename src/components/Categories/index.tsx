@@ -1,10 +1,12 @@
+"use client"
+
 import clsx from "clsx"
 import styles from "./index.module.scss"
 import { useAtom } from "jotai"
 import { selectedCategoryAtom } from "@/stores"
 
 interface IProps {
-  header: string
+  header?: string
   categories: { label: string; id: number }[]
   className?: string
 }
@@ -14,7 +16,7 @@ export default function Categories({ header, categories, className }: IProps) {
 
   return (
     <div className={clsx(styles.container, className)}>
-      <div className={styles.header}>{header}</div>
+      {header && <div className={styles.header}>{header}</div>}
       <div className={styles.categories}>
         {categories.map((category) => {
           return (

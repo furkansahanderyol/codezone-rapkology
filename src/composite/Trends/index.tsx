@@ -9,6 +9,7 @@ import { useMemo, useState } from "react"
 import SkewedButton from "@/components/SkewedButton"
 import Post from "@/components/Post"
 import SectionHeader from "@/components/SectionHeader"
+import SectionLayout from "@/layouts/SectionLayout"
 
 export default function Trends() {
   const [data] = useAtom(dataAtom)
@@ -19,7 +20,7 @@ export default function Trends() {
   }, [data])
 
   return (
-    <section className={styles.container}>
+    <SectionLayout className={styles.container}>
       <SectionHeader header="Trendler" suffix={<IconIncrease />} />
       {/* <div className={styles.header}>
         TRENDLER <IconIncrease />
@@ -54,6 +55,6 @@ export default function Trends() {
           </span>
         </SkewedButton>
       </div>
-    </section>
+    </SectionLayout>
   )
 }

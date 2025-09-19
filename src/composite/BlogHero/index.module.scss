@@ -89,6 +89,7 @@
                 position: absolute;
                 width: 100%;
                 height: 100%;
+                object-fit: cover;
               }
             }
 
@@ -112,7 +113,7 @@
 
         .customPaginationContainer {
           position: absolute;
-          bottom: 70px;
+          bottom: 45px;
           right: 0;
           height: 50px;
           z-index: 100;
@@ -149,6 +150,7 @@
             max-width: 174px;
             width: 100%;
             height: 104px;
+            flex-shrink: 0;
 
             img {
               object-fit: cover;
@@ -174,8 +176,8 @@
   .blogHeroShape {
     width: 100vw;
     position: absolute;
-    height: 150px;
-    bottom: -65px;
+    height: 120px;
+    bottom: -45px;
     z-index: 3;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -192,6 +194,111 @@
       object-fit: cover;
       position: relative;
       left: 0;
+    }
+  }
+}
+
+@media (max-width: 1279px) {
+  .container {
+    .wrapper {
+      padding: 4.6rem 2.5rem;
+    }
+  }
+}
+
+@media (max-width: 1180px) {
+  .container {
+    .background {
+      background-image: none;
+    }
+
+    .wrapper {
+      .content {
+        position: relative;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        column-gap: 0;
+        row-gap: 5.875rem;
+
+        .sliderSide {
+          max-width: 100%;
+          min-width: 200px;
+
+          .swiperItemWrapper {
+            width: 100%;
+
+            .swiperItem {
+              width: 100%;
+
+              .postImageWrapper {
+                width: 100%;
+                height: 430px;
+
+                .postImage {
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+
+              .postTitle {
+                padding-left: 0;
+                font-size: 1.25rem;
+              }
+            }
+          }
+
+          .customPaginationContainer {
+            left: 50%;
+            bottom: -15%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    .wrapper {
+      padding: 3.25rem 1.25rem;
+
+      .titleWrapper {
+        display: none;
+      }
+
+      .content {
+        .sliderSide {
+          .swiperItemWrapper {
+            .swiperItem {
+              .postImageWrapper {
+                min-height: 387px;
+                height: 209px;
+              }
+
+              .postTitle {
+                font-size: 1.25rem;
+              }
+            }
+          }
+        }
+
+        .recommendationsSide {
+          .recommendedPost {
+            .imageWrapper {
+              min-width: 183px;
+            }
+
+            .description {
+              font-size: 1.25rem;
+            }
+          }
+        }
+      }
     }
   }
 }

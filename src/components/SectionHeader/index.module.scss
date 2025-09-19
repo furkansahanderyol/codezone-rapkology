@@ -1,25 +1,34 @@
 .container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1.25rem;
-  font-family: var(--font-saira-condensed);
-  font-size: 3.75rem;
-  font-weight: 700;
-  color: var(--white);
-  text-transform: uppercase;
+  width: 100%;
 
-  svg {
-    color: var(--yellow);
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-family: var(--font-saira-condensed);
+    font-size: 3.75rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+
+    svg {
+      color: var(--yellow);
+    }
   }
 }
 
 @media (max-width: 768px) {
   .container {
-    font-size: 40px;
+    .header {
+      font-size: 40px;
 
-    svg {
-      width: 41px;
-      height: 24px;
+      svg {
+        width: 41px;
+        height: 24px;
+      }
     }
   }
 }

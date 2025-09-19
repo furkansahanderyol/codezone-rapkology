@@ -1,5 +1,4 @@
 .container {
-  padding: 3.75rem 5rem;
   display: grid;
   grid-template-columns: 3fr 2fr;
   column-gap: 8rem;
@@ -53,6 +52,7 @@
     .list {
       max-width: 100%;
       width: fit-content;
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 5rem;
@@ -106,7 +106,6 @@
     flex-direction: column;
     flex-direction: column-reverse;
     position: relative;
-    padding: 5rem 2.5rem;
 
     .leftSide {
       width: 100%;
@@ -145,7 +144,6 @@
     flex-direction: column;
     flex-direction: column-reverse;
     position: relative;
-    padding: 5rem 1.25rem;
 
     .leftSide {
       width: 100%;
