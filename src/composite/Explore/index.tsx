@@ -64,6 +64,7 @@ export default function Explore() {
                 authorImage={value.attributes.img}
                 description={value.attributes.desc}
                 showPostImage={true}
+                slug={value.attributes.slug}
               />
             )
           })}

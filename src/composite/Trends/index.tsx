@@ -41,6 +41,7 @@ export default function Trends() {
               index={index + 1}
               date={value.createdAt}
               showPostImage={false}
+              slug={value.attributes.slug}
             />
           )
         })}

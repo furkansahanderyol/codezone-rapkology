@@ -1,0 +1,23 @@
+.container {
+  text-align: flex-start;
+  font-family: var(--font-saira);
+  font-weight: 400;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  color: var(--white);
+  text-transform: uppercase;
+
+  .link {
+    text-align: flex-start;
+    font-family: var(--font-saira);
+    font-weight: 400;
+    font-size: 0.875rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    color: var(--white);
+  }
+}

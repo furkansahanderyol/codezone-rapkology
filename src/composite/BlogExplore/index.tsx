@@ -69,6 +69,7 @@ export default function BlogExplore() {
                 authorImage={value.attributes.img}
                 description={value.attributes.desc}
                 showPostImage={true}
+                slug={value.attributes.slug}
                 vertical
               />
             )

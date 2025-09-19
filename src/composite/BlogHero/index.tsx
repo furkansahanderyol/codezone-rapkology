@@ -7,7 +7,7 @@ import { dataAtom } from "@/stores"
 import { SwiperSlide } from "swiper/react"
 import Link from "next/link"
 import Image from "next/image"
-import { useEffect, useMemo, useRef } from "react"
+import { useMemo, useRef } from "react"
 
 export default function BlogHero() {
   const [data] = useAtom(dataAtom)

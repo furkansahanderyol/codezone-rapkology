@@ -18,6 +18,7 @@ interface IProps {
   contentStyles?: string
   wrapperStyles?: string
   vertical?: boolean
+  slug: string
 }
 
 export default function Post({
@@ -28,6 +29,7 @@ export default function Post({
   authorImage,
   index,
   date,
+  slug,
   showPostImage,
   containerStyles,
   contentStyles,
@@ -36,7 +38,10 @@ export default function Post({
 }: IProps) {
   {
     return !vertical ? (
-      <Link href={"#"} className={clsx(styles.container, containerStyles)}>
+      <Link
+        href={`/blog/${slug}`}
+        className={clsx(styles.container, containerStyles)}
+      >
         {index && (
           <div className={styles.index}>{index < 10 ? `0${index}` : index}</div>
         )}
