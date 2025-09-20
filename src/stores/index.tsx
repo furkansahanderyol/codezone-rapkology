@@ -7,3 +7,6 @@ export const loadingAtom = atom<boolean>(false)
 
 // category
 export const selectedCategoryAtom = atom<number>(0)
+
+// menu
+export const showMenuAtom = atom(false)

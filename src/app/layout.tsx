@@ -5,6 +5,7 @@ import Providers from "@/provider"
 import Navbar from "@/components/Navbar"
 import Footer from "@/composite/Footer"
 import DataLoader from "@/components/DataLoader"
+import Menu from "@/composite/Menu"
 
 const saira = Saira({
   variable: "--font-saira",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <DataLoader />
         <body className={`${saira.variable} ${sairaCondensed.variable}`}>
           <Navbar />
+          <Menu />
           {children}
           <Footer />
         </body>
