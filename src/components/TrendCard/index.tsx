@@ -1,8 +1,6 @@
 import Link from "next/link"
 import styles from "./index.module.scss"
-import Image from "next/image"
 import { IconArrowRight } from "@/assets/IconArrowRight"
-import AuthorImage from "../AuthorInformation"
 import AuthorInformation from "../AuthorInformation"
 
 interface IProps {

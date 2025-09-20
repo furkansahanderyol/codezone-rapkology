@@ -66,8 +66,12 @@ export default function BlogPostPage() {
               {selectedPost[0]?.attributes.content}
             </div>
             <div className={styles.postTags}>
-              {selectedPost[0].attributes.tags.map((tag) => {
-                return <div className={styles.tag}>{tag}</div>
+              {selectedPost[0].attributes.tags.map((tag, index) => {
+                return (
+                  <div key={index} className={styles.tag}>
+                    {tag}
+                  </div>
+                )
               })}
             </div>
             <div className={styles.postInteractions}>

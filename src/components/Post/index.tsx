@@ -22,11 +22,9 @@ interface IProps {
 }
 
 export default function Post({
-  title,
   description,
   image,
   authorName,
-  authorImage,
   index,
   date,
   slug,

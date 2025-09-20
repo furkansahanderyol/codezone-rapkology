@@ -19,7 +19,6 @@ import { IconArrowRight } from "@/assets/IconArrowRight"
 import { useRef, useState } from "react"
 import { Swiper as SwiperType } from "swiper"
 import { SwiperOptions } from "swiper/types"
-import { useAtom } from "jotai"
 
 interface IProps {
   spaceBetween?: number
@@ -56,12 +55,11 @@ export default function SwiperContainer({
   arrows,
   scrollbar,
   pagination,
-  breakpoints,
   effectCoverflow,
   coverflowOptions,
 }: IProps) {
   const swiperRef = useRef<HTMLDivElement>(null)
-  const [swiper, setSwiper] = useState<SwiperType | undefined>(undefined)
+  const [swiper] = useState<SwiperType | undefined>(undefined)
   const swiperModules = []
 
   if (autoPlay) {
@@ -92,7 +90,6 @@ export default function SwiperContainer({
         loop={loop}
         modules={swiperModules}
         autoplay={{ delay: delay }}
-        // breakpoints={breakpoints}
         coverflowEffect={coverflowOptions}
         effect={effectCoverflow ? "coverflow" : "slide"}
         breakpoints={
@@ -122,10 +119,6 @@ export default function SwiperContainer({
               }
             : undefined
         }
-        // pagination={{
-        //   enabled: true,
-        //   clickable: true,
-        // }}
         pagination={
           pagination
             ? {

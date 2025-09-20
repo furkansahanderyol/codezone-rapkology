@@ -20,7 +20,7 @@ import { IconExploreBlogBackground } from "@/assets/IconExploreBlogBackground"
 export default function BlogExplore() {
   const [data] = useAtom(dataAtom)
   const [showAll, setShowAll] = useState(false)
-  const [listMode, setListMode] = useState<"grid" | "list">("grid")
+  // const [listMode, setListMode] = useState<"grid" | "list">("grid")
 
   return (
     <SectionLayout className={styles.container}>

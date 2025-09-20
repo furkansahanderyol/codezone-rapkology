@@ -4,8 +4,7 @@ import { IconIncrease } from "@/assets/IconIncrease"
 import styles from "./index.module.scss"
 import { useAtom } from "jotai"
 import { dataAtom } from "@/stores"
-import TrendCard from "@/components/TrendCard"
-import { useMemo, useState } from "react"
+import { useState } from "react"
 import SkewedButton from "@/components/SkewedButton"
 import Post from "@/components/Post"
 import SectionHeader from "@/components/SectionHeader"
@@ -15,9 +14,9 @@ export default function Trends() {
   const [data] = useAtom(dataAtom)
   const [limitVisibleCards, setLimitVisibleCards] = useState(true)
 
-  const trends = useMemo(() => {
-    return data?.filter((value) => value.attributes.trends)
-  }, [data])
+  // const trends = useMemo(() => {
+  //   return data?.filter((value) => value.attributes.trends)
+  // }, [data])
 
   return (
     <SectionLayout className={styles.container}>

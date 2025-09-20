@@ -14,7 +14,7 @@ export default function DataLoader() {
     }
 
     getData()
-  }, [])
+  }, [setData])
 
   return null
 }
