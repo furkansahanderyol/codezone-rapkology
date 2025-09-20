@@ -36,9 +36,7 @@ export default function Navbar() {
             showMenu ? setShowMenu(false) : setShowMenu(true)
           }}
           className={clsx(styles.menu, showMenu && styles.active)}
-        >
-          {/* <IconMenu width={30} height={10} /> */}
-        </div>
+        />
         <div className={styles.search}>
           <IconSearch width={23} height={22} />
         </div>

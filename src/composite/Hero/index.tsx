@@ -6,34 +6,16 @@ import HeroCard from "@/components/HeroCard"
 import { DataService } from "@/services/data"
 import { dataAtom, loadingAtom } from "@/stores"
 import { useAtom } from "jotai"
-import { useEffect, useRef } from "react"
+import { useEffect, useState } from "react"
 import { SwiperSlide } from "swiper/react"
 import Image from "next/image"
-
-const HERO_CARDS = [
-  {
-    id: 0,
-    title: "Dünya Rap Trendlerini Konuşuyoruz.",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ",
-    image: "/hero-image-1.webp",
-    dark: false,
-  },
-  {
-    id: 1,
-    title: "Türkçe Rap ve Dünya Müzil Haberlerini Takip Et.",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi  ",
-    image: "/hero-image-2.webp",
-    dark: true,
-  },
-]
+import { HERO_CARDS } from "@/constants/heroCards"
 
 export default function Hero() {
   const [, setDataAtom] = useAtom(dataAtom)
   const [, setLoading] = useAtom(loadingAtom)
-
-  const heroPaginationRef = useRef<HTMLDivElement>(null)
+  const [heroPaginationRef, setHeroPaginationRef] =
+    useState<HTMLDivElement | null>(null)
 
   useEffect(() => {
     setLoading(true)
@@ -51,7 +33,7 @@ export default function Hero() {
     <section className={styles.container}>
       <SwiperContainer
         slidersPerView={1}
-        pagination={{ el: heroPaginationRef.current }}
+        pagination={{ el: heroPaginationRef }}
         delay={5000}
         thumbs={true}
         arrows
@@ -68,6 +50,7 @@ export default function Hero() {
                 description={card.description}
                 image={card.image}
                 dark={card.dark}
+                slug={card.slug}
               />
             </SwiperSlide>
           )
@@ -77,7 +60,7 @@ export default function Hero() {
         <Image src={"/vector.webp"} fill alt="" objectFit="cover" />
       </div>
       <div
-        ref={heroPaginationRef}
+        ref={setHeroPaginationRef}
         className={styles.customPaginationContainer}
       />
     </section>

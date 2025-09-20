@@ -1,4 +1,5 @@
-.container {
+.container,
+.listView {
   text-decoration: none;
   color: var(--white);
   position: relative;
@@ -41,10 +42,11 @@
     flex-direction: column;
     justify-content: space-between;
     height: 245px;
+    width: 300px;
 
     .postImage {
       position: relative;
-      width: 300px;
+      width: 100%;
       height: 196px;
     }
 
@@ -78,7 +80,6 @@
           font-family: var(--font-saira-condensed);
           font-size: 1.56rem;
           font-weight: 700;
-          max-width: 400px;
           line-height: 104%;
 
           display: -webkit-box;
@@ -119,15 +120,13 @@
   color: var(--white);
 
   &:hover {
-    .index {
-      color: var(--yellow);
-    }
-
-    .wrapper {
-      .readMore {
-        svg {
-          opacity: 1;
-          transform: translateX(100%);
+    .flex {
+      .wrapper {
+        .readMore {
+          svg {
+            opacity: 1;
+            transform: translateX(100%);
+          }
         }
       }
     }
@@ -147,6 +146,12 @@
         position: relative;
         width: 100%;
         height: 196px;
+      }
+
+      .date {
+        font-family: var(--font-saira);
+        font-weight: 400;
+        color: var(--date-text);
       }
     }
 
@@ -172,7 +177,6 @@
             font-family: var(--font-saira-condensed);
             font-size: 1.25rem;
             font-weight: 700;
-            max-width: 400px;
             line-height: 104%;
             min-height: 105px;
             display: -webkit-box;
@@ -205,8 +209,26 @@
   }
 }
 
+.listView {
+  .flex {
+    .wrapper {
+      .postInformation {
+        .contentWrapper {
+          .content {
+            width: fit-content;
+          }
+          .content {
+            min-height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 1200px) {
-  .container {
+  .container,
+  .listView {
     .postImageSide {
       height: 245px;
 
@@ -220,7 +242,8 @@
 }
 
 @media (max-width: 768px) {
-  .container {
+  .container,
+  .listView {
     .postImageSide {
       width: 100%;
       .postImage {

@@ -9,6 +9,7 @@ interface IProps {
   description: string
   image: string
   dark: boolean
+  slug: string
 }
 
 export default function HeroCard({
@@ -17,6 +18,7 @@ export default function HeroCard({
   description,
   image,
   dark,
+  slug,
 }: IProps) {
   return (
     <div className={clsx(styles.container, dark && styles.dark)}>
@@ -41,7 +43,7 @@ export default function HeroCard({
         <div className={styles.description}>{description}</div>
 
         <div className={styles.readMoreWrapper}>
-          <Link className={styles.readMore} href={"#"}>
+          <Link className={styles.readMore} href={`/blog/${slug}`}>
             Devamını Oku
           </Link>
         </div>

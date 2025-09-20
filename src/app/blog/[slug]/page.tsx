@@ -9,14 +9,13 @@ import Image from "next/image"
 import { useParams } from "next/navigation"
 import { useAtom } from "jotai"
 import { blogPostVisibleTrendsAtom, dataAtom } from "@/stores"
-import { useMemo, useState } from "react"
+import { useMemo } from "react"
 import { IconEye } from "@/assets/IconEye"
 import { IconHeart } from "@/assets/IconHeart"
 import { IconComment } from "@/assets/IconComment"
 import Link from "next/link"
 import SectionHeader from "@/components/SectionHeader"
 import Post from "@/components/Post"
-import SkewedButton from "@/components/SkewedButton"
 import { IconIncrease } from "@/assets/IconIncrease"
 import GridLayout from "@/layouts/GridLayout"
 import { PostData } from "@/services/type"
@@ -27,13 +26,10 @@ export default function BlogPostPage() {
   const [trendsVisibleItemCount, setTrendsVisibleItemCount] = useAtom(
     blogPostVisibleTrendsAtom
   )
-  const [limitVisibleCards, setLimitVisibleCards] = useState(false)
 
   const selectedPost = useMemo(() => {
     return data?.filter((post) => post.attributes.slug === slug)
   }, [slug, data])
-
-  console.log(selectedPost)
 
   if (!selectedPost) return
   return (

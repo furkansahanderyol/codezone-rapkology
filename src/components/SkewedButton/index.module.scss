@@ -1,5 +1,10 @@
 .container {
   filter: drop-shadow(4px 4px 0px var(--black));
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 // Button separated for preventing overwrite

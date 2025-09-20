@@ -40,6 +40,11 @@
             font-weight: 400;
             font-family: var(--font-saira);
             text-transform: uppercase;
+            transition: color ease-in-out 200ms;
+
+            &:hover {
+              color: var(--yellow);
+            }
           }
         }
       }
@@ -113,6 +118,16 @@
       }
     }
 
+    .search {
+      color: var(--white);
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: var(--yellow);
+      }
+    }
+
     .login {
       display: flex;
       justify-content: center;
@@ -127,6 +142,11 @@
       background-color: var(--white);
       text-decoration: none;
       text-transform: uppercase;
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: var(--yellow);
+      }
     }
   }
 }

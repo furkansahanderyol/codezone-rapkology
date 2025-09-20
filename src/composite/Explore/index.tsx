@@ -6,7 +6,7 @@ import { IconList } from "@/assets/IconList"
 import { IconGrid } from "@/assets/IconGrid"
 import { IconCompass } from "@/assets/IconCompass"
 import { useAtom } from "jotai"
-import { dataAtom, homepageVisibleExploreAtom } from "@/stores"
+import { dataAtom, homepageVisibleExploreAtom, viewOptionAtom } from "@/stores"
 import Post from "@/components/Post"
 import ContactForm from "@/components/ContactForm"
 import Categories from "@/components/Categories"
@@ -17,15 +17,18 @@ import SectionLayout from "@/layouts/SectionLayout"
 import GridLayout from "@/layouts/GridLayout"
 import { PostData } from "@/services/type"
 import { useEffect } from "react"
+import clsx from "clsx"
 
 export default function Explore() {
   const [data] = useAtom(dataAtom)
   const [visibleExploreItemCount, setVisibleExploreItemCount] = useAtom(
     homepageVisibleExploreAtom
   )
+  const [view, setView] = useAtom(viewOptionAtom)
 
   useEffect(() => {
     setVisibleExploreItemCount(4)
+    setView("list")
   }, [setVisibleExploreItemCount])
 
   return (
@@ -47,10 +50,22 @@ export default function Explore() {
                   <div className={styles.icon}>
                     <IconSearch width={24} height={24} />
                   </div>
-                  <div className={styles.icon}>
+                  <div
+                    onClick={() => setView("list")}
+                    className={clsx(
+                      styles.icon,
+                      view === "list" && styles.active
+                    )}
+                  >
                     <IconList width={24} height={24} />
                   </div>
-                  <div className={styles.icon}>
+                  <div
+                    onClick={() => setView("grid")}
+                    className={clsx(
+                      styles.icon,
+                      view === "grid" && styles.active
+                    )}
+                  >
                     <IconGrid width={24} height={24} />
                   </div>
                 </div>
@@ -66,9 +81,9 @@ export default function Explore() {
             buttonText="Daha Fazla Göster"
             showAllArticles
             moreItemCount={4}
-            gridStyles={styles.list}
+            gridStyles={clsx(styles.list, view === "grid" && styles.gridView)}
             data={data as PostData[]}
-            item={(post, index) => (
+            item={(post) => (
               <Post
                 key={post._id}
                 title={post.attributes.title}
@@ -76,6 +91,7 @@ export default function Explore() {
                 containerStyles={styles.postContainer}
                 contentStyles={styles.postContent}
                 wrapperStyles={styles.wrapperSpace}
+                imageStyles={styles.postImage}
                 image={post.attributes.img}
                 authorImage=""
                 authorName={post.attributes.authors[0]}

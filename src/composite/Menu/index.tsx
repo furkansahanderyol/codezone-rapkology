@@ -17,10 +17,9 @@ export default function Menu() {
     if (showMenu) {
       setIsAnimating(true)
     } else {
-      // Menü kapanırken 300ms gecikme ile kaldır
       setTimeout(() => {
         setIsAnimating(false)
-      }, 300) // 300ms, kapanış animasyonun süresi kadar olabilir
+      }, 300)
     }
   }, [showMenu])
 

@@ -78,10 +78,6 @@ export default function SwiperContainer({
     swiperModules.push(Pagination)
   }
 
-  // if (arrows) {
-  //   swiperModules.push(Navigation)
-  // }
-
   if (effectCoverflow) {
     swiperModules.push(EffectCoverflow)
   }

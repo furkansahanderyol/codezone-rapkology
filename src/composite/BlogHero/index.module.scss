@@ -40,10 +40,11 @@
       flex-direction: column;
       gap: 2.125rem;
 
-      .breadCrumbs {
+      .breadCrumb {
         text-align: flex-start;
         font-family: var(--font-saira);
         font-weight: 400;
+        color: var(--black);
         font-size: 0.875rem;
       }
 
@@ -79,6 +80,12 @@
             gap: 1.75rem;
             position: relative;
             text-decoration: none;
+
+            &:hover {
+              .postTitle {
+                text-decoration: underline;
+              }
+            }
 
             .postImageWrapper {
               position: relative;
@@ -143,7 +150,12 @@
         .recommendedPost {
           display: flex;
           align-items: center;
+          text-decoration: none;
           gap: 1.25rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
 
           .imageWrapper {
             position: relative;
@@ -159,6 +171,7 @@
 
           .description {
             font-family: var(--font-saira-condensed);
+            color: var(--black);
             font-weight: 700;
             font-size: 1.56rem;
             line-height: 104%;

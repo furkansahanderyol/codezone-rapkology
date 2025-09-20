@@ -16,3 +16,6 @@ export const homepageVisibleTrendsAtom = atom(6)
 export const homepageVisibleExploreAtom = atom(4)
 export const blogPageVisibleExploreAtom = atom(8)
 export const blogPostVisibleTrendsAtom = atom(6)
+
+// options
+export const viewOptionAtom = atom<"grid" | "list">()

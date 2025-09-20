@@ -4,6 +4,9 @@ import AuthorInformation from "../AuthorInformation"
 import { IconArrowRight } from "@/assets/IconArrowRight"
 import Image from "next/image"
 import clsx from "clsx"
+import { useAtom } from "jotai"
+import { viewOptionAtom } from "@/stores"
+import { formatDate } from "@/helpers/formatDate"
 
 interface IProps {
   title: string
@@ -17,6 +20,7 @@ interface IProps {
   containerStyles?: string
   contentStyles?: string
   wrapperStyles?: string
+  imageStyles?: string
   vertical?: boolean
   slug: string
 }
@@ -31,9 +35,11 @@ export default function Post({
   showPostImage,
   containerStyles,
   contentStyles,
+  imageStyles,
   wrapperStyles,
   vertical,
 }: IProps) {
+  const [view] = useAtom(viewOptionAtom)
   {
     return !vertical ? (
       <Link
@@ -44,11 +50,11 @@ export default function Post({
           <div className={styles.index}>{index < 10 ? `0${index}` : index}</div>
         )}
         {showPostImage && (
-          <div className={styles.postImageSide}>
+          <div className={clsx(styles.postImageSide, imageStyles)}>
             <div className={styles.postImage}>
               <Image src={image} fill objectFit="cover" alt="" />
             </div>
-            <div className={styles.date}>{date}</div>
+            <div className={styles.date}>{formatDate(date)}</div>
           </div>
         )}
         <div className={clsx(styles.wrapper, wrapperStyles)}>
@@ -73,7 +79,13 @@ export default function Post({
         </div>
       </Link>
     ) : (
-      <Link href={"#"} className={clsx(styles.containerVertical)}>
+      <Link
+        href={"#"}
+        className={clsx(
+          styles.containerVertical,
+          view === "list" && styles.listView
+        )}
+      >
         <AuthorInformation
           url={image}
           alt=""
@@ -86,11 +98,11 @@ export default function Post({
 
         <div className={styles.flex}>
           {showPostImage && (
-            <div className={styles.postImageSide}>
+            <div className={clsx(styles.postImageSide, imageStyles)}>
               <div className={styles.postImage}>
                 <Image src={image} fill objectFit="cover" alt="" />
               </div>
-              <div className={styles.date}>{date}</div>
+              <div className={styles.date}>{formatDate(date)}</div>
             </div>
           )}
 

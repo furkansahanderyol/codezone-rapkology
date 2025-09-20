@@ -12,7 +12,7 @@ export const IconChevronRight: React.FC<IconType> = (props) => {
     >
       <path
         d="M1.22656 8.1958L5.06836 4.354L1.22656 0.512207"
-        stroke="white"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

@@ -7,10 +7,13 @@ import { dataAtom } from "@/stores"
 import { SwiperSlide } from "swiper/react"
 import Link from "next/link"
 import Image from "next/image"
-import { useMemo, useRef } from "react"
+import { useMemo, useState } from "react"
+import Breadcrumb from "@/components/Breadcrumb"
 
 export default function BlogHero() {
   const [data] = useAtom(dataAtom)
+  const [blogPaginationRef, setBlogPaginationRef] =
+    useState<HTMLDivElement | null>(null)
 
   const blogData = useMemo(() => {
     if (!data) return
@@ -23,16 +26,19 @@ export default function BlogHero() {
     return [highlightedPosts, recommendedPosts]
   }, [data])
 
-  const blogPaginationRef = useRef<HTMLDivElement>(null)
-
   return (
     <div className={styles.container}>
       <div className={styles.background} />
       <div className={styles.wrapper}>
         <div className={styles.titleWrapper}>
-          <div className={styles.breadCrumbs}>
-            {"Ana Sayfa > Blog > LOREM IPSUM DOLOR  ...  AMET"}
-          </div>
+          <Breadcrumb
+            textColor={styles.breadCrumb}
+            history={[
+              { label: "Ana Sayfa", url: "/" },
+              { label: "Blog", url: "/blog" },
+              { label: "Lorem Ipsum", url: "" },
+            ]}
+          />
           <div className={styles.title}>BLOG</div>
         </div>
 
@@ -41,7 +47,7 @@ export default function BlogHero() {
             <SwiperContainer
               slidersPerView={1}
               scrollbar={false}
-              pagination={{ el: blogPaginationRef.current }}
+              pagination={{ el: blogPaginationRef }}
               coverflowOptions={{
                 rotate: 50,
                 stretch: 0,
@@ -59,14 +65,17 @@ export default function BlogHero() {
                       key={value._id}
                       className={styles.swiperItemWrapper}
                     >
-                      <Link href={"#"} className={styles.swiperItem}>
+                      <Link
+                        href={`/blog/${value.attributes.slug}`}
+                        className={styles.swiperItem}
+                      >
                         <div className={styles.postImageWrapper}>
                           <Image
                             className={styles.postImage}
                             src={value.attributes.img}
                             fill
                             priority
-                            alt=""
+                            alt={""}
                           />
                         </div>
                         <div>
@@ -82,7 +91,7 @@ export default function BlogHero() {
                 })}
             </SwiperContainer>
             <div
-              ref={blogPaginationRef}
+              ref={setBlogPaginationRef}
               className={styles.customPaginationContainer}
             />
           </div>
@@ -93,14 +102,18 @@ export default function BlogHero() {
                 if (index > 3) return
 
                 return (
-                  <div key={data._id} className={styles.recommendedPost}>
+                  <Link
+                    href={`/blog/${data.attributes.slug}`}
+                    key={data._id}
+                    className={styles.recommendedPost}
+                  >
                     <div className={styles.imageWrapper}>
                       <Image src={data.attributes.img} alt="" fill />
                     </div>
                     <div className={styles.description}>
                       {data.attributes.desc}
                     </div>
-                  </div>
+                  </Link>
                 )
               })}
           </div>

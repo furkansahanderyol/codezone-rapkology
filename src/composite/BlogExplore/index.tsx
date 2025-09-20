@@ -9,23 +9,27 @@ import { IconGrid } from "@/assets/IconGrid"
 import Categories from "@/components/Categories"
 import { CATEGORIES } from "@/constants/categories"
 import { useAtom } from "jotai"
-import { blogPageVisibleExploreAtom, dataAtom } from "@/stores"
+import { blogPageVisibleExploreAtom, dataAtom, viewOptionAtom } from "@/stores"
 import Post from "@/components/Post"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SkewedButton from "@/components/SkewedButton"
 import { IconDiamondShape } from "@/assets/IconDiamondShape"
 import SectionLayout from "@/layouts/SectionLayout"
 import { IconExploreBlogBackground } from "@/assets/IconExploreBlogBackground"
 import GridLayout from "@/layouts/GridLayout"
 import { PostData } from "@/services/type"
+import clsx from "clsx"
 
 export default function BlogExplore() {
   const [data] = useAtom(dataAtom)
-  const [showAll, setShowAll] = useState(false)
   const [visibleExploreItemCount, setVisibleExploreItemCount] = useAtom(
     blogPageVisibleExploreAtom
   )
-  // const [listMode, setListMode] = useState<"grid" | "list">("grid")
+  const [view, setView] = useAtom(viewOptionAtom)
+
+  useEffect(() => {
+    setView("grid")
+  }, [setView])
 
   return (
     <SectionLayout className={styles.container}>
@@ -41,10 +45,22 @@ export default function BlogExplore() {
                 <div className={styles.icon}>
                   <IconSearch width={24} height={24} />
                 </div>
-                <div className={styles.icon}>
+                <div
+                  onClick={() => setView("list")}
+                  className={clsx(
+                    styles.icon,
+                    view === "list" && styles.active
+                  )}
+                >
                   <IconList width={24} height={24} />
                 </div>
-                <div className={styles.icon}>
+                <div
+                  onClick={() => setView("grid")}
+                  className={clsx(
+                    styles.icon,
+                    view === "grid" && styles.active
+                  )}
+                >
                   <IconGrid width={24} height={24} />
                 </div>
               </div>
@@ -62,11 +78,11 @@ export default function BlogExplore() {
             initialItemCount={visibleExploreItemCount}
             setInitialItemCount={setVisibleExploreItemCount}
             moreItemCount={4}
-            gridStyles={styles.grid}
+            gridStyles={clsx(styles.grid, view === "list" && styles.listView)}
             minimumItemCount={8}
-            buttonText="Tümünü Gör"
+            buttonText="Daha Fazla Gör"
             data={data as PostData[]}
-            item={(post, index) => (
+            item={(post) => (
               <Post
                 key={post._id}
                 image={post.attributes.img}
@@ -75,6 +91,7 @@ export default function BlogExplore() {
                 containerStyles={styles.postContainer}
                 contentStyles={styles.postContent}
                 wrapperStyles={styles.wrapperSpace}
+                imageStyles={styles.postImage}
                 authorName={post.attributes.authors[0]}
                 authorImage={post.attributes.img}
                 description={post.attributes.desc}
@@ -85,13 +102,6 @@ export default function BlogExplore() {
             )}
           />
         )}
-
-        {/* <SkewedButton
-          onClick={() => setShowAll(!showAll)}
-          className={styles.button}
-        >
-          {showAll ? "Daha Az Göster" : "Daha Fazla Gör"}
-        </SkewedButton> */}
       </div>
     </SectionLayout>
   )
