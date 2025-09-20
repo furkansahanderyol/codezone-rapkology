@@ -6,7 +6,7 @@ import { IconList } from "@/assets/IconList"
 import { IconGrid } from "@/assets/IconGrid"
 import { IconCompass } from "@/assets/IconCompass"
 import { useAtom } from "jotai"
-import { dataAtom } from "@/stores"
+import { dataAtom, homepageVisibleExploreAtom } from "@/stores"
 import Post from "@/components/Post"
 import ContactForm from "@/components/ContactForm"
 import Categories from "@/components/Categories"
@@ -14,9 +14,19 @@ import { CATEGORIES } from "@/constants/categories"
 import { SOCIAL_LINKS } from "@/constants/socialLinks"
 import SectionHeader from "@/components/SectionHeader"
 import SectionLayout from "@/layouts/SectionLayout"
+import GridLayout from "@/layouts/GridLayout"
+import { PostData } from "@/services/type"
+import { useEffect } from "react"
 
 export default function Explore() {
   const [data] = useAtom(dataAtom)
+  const [visibleExploreItemCount, setVisibleExploreItemCount] = useAtom(
+    homepageVisibleExploreAtom
+  )
+
+  useEffect(() => {
+    setVisibleExploreItemCount(4)
+  }, [setVisibleExploreItemCount])
 
   return (
     <SectionLayout className={styles.container}>
@@ -49,26 +59,34 @@ export default function Explore() {
           </div>
         </div>
 
-        <div className={styles.list}>
-          {data?.map((value) => {
-            return (
+        {data && (
+          <GridLayout
+            initialItemCount={visibleExploreItemCount}
+            setInitialItemCount={setVisibleExploreItemCount}
+            buttonText="Daha Fazla Göster"
+            showAllArticles
+            moreItemCount={4}
+            gridStyles={styles.list}
+            data={data as PostData[]}
+            item={(post, index) => (
               <Post
-                key={value._id}
-                image={value.attributes.img}
-                date={value.createdAt}
-                title={value.attributes.title}
+                key={post._id}
+                title={post.attributes.title}
+                description={post.attributes.desc}
                 containerStyles={styles.postContainer}
                 contentStyles={styles.postContent}
                 wrapperStyles={styles.wrapperSpace}
-                authorName={value.attributes.authors[0]}
-                authorImage={value.attributes.img}
-                description={value.attributes.desc}
+                image={post.attributes.img}
+                authorImage=""
+                authorName={post.attributes.authors[0]}
+                index={undefined}
+                date={post.createdAt}
                 showPostImage={true}
-                slug={value.attributes.slug}
+                slug={post.attributes.slug}
               />
-            )
-          })}
-        </div>
+            )}
+          />
+        )}
       </div>
 
       <div className={styles.rightSide}>

@@ -59,7 +59,7 @@ export default function SwiperContainer({
   coverflowOptions,
 }: IProps) {
   const swiperRef = useRef<HTMLDivElement>(null)
-  const [swiper] = useState<SwiperType | undefined>(undefined)
+  const [swiper, setSwiper] = useState<SwiperType | undefined>(undefined)
   const swiperModules = []
 
   if (autoPlay) {
@@ -78,6 +78,10 @@ export default function SwiperContainer({
     swiperModules.push(Pagination)
   }
 
+  // if (arrows) {
+  //   swiperModules.push(Navigation)
+  // }
+
   if (effectCoverflow) {
     swiperModules.push(EffectCoverflow)
   }
@@ -85,6 +89,7 @@ export default function SwiperContainer({
   return (
     <div className={styles.container}>
       <Swiper
+        onSwiper={setSwiper}
         spaceBetween={spaceBetween}
         slidesPerView={slidersPerView}
         loop={loop}
@@ -133,7 +138,7 @@ export default function SwiperContainer({
           hide: false,
           draggable: true,
         }}
-        navigation={true}
+        navigation={false}
       >
         {arrows && (
           <div className={styles.arrows}>

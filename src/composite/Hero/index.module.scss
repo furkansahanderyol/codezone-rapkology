@@ -10,6 +10,7 @@
     bottom: 0px;
     width: 100%;
     height: 245px;
+    user-select: none;
   }
 
   .customPaginationContainer {
@@ -39,7 +40,19 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .container {
+    .customPaginationContainer {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .container {
+    .customPaginationContainer {
+      display: none;
+    }
   }
 }

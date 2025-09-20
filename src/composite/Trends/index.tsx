@@ -3,58 +3,53 @@
 import { IconIncrease } from "@/assets/IconIncrease"
 import styles from "./index.module.scss"
 import { useAtom } from "jotai"
-import { dataAtom } from "@/stores"
-import { useState } from "react"
-import SkewedButton from "@/components/SkewedButton"
+import { dataAtom, homepageVisibleTrendsAtom } from "@/stores"
+import { useEffect } from "react"
 import Post from "@/components/Post"
 import SectionHeader from "@/components/SectionHeader"
 import SectionLayout from "@/layouts/SectionLayout"
+import GridLayout from "@/layouts/GridLayout"
+import { PostData } from "@/services/type"
 
 export default function Trends() {
   const [data] = useAtom(dataAtom)
-  const [limitVisibleCards, setLimitVisibleCards] = useState(true)
+  const [trendsVisibleItemCount, setTrendsVisibleItemCount] = useAtom(
+    homepageVisibleTrendsAtom
+  )
 
-  // const trends = useMemo(() => {
-  //   return data?.filter((value) => value.attributes.trends)
-  // }, [data])
+  useEffect(() => {
+    setTrendsVisibleItemCount(6)
+  }, [setTrendsVisibleItemCount])
 
   return (
     <SectionLayout className={styles.container}>
       <SectionHeader header="Trendler" suffix={<IconIncrease />} />
-      {/* <div className={styles.header}>
-        TRENDLER <IconIncrease />
-      </div> */}
-      <div className={styles.grid}>
-        {data?.map((value, index) => {
-          if (limitVisibleCards && index > 5) return
-
-          return (
+      {data && (
+        <GridLayout
+          initialItemCount={trendsVisibleItemCount}
+          setInitialItemCount={setTrendsVisibleItemCount}
+          moreItemCount={3}
+          gridStyles={styles.grid}
+          data={data as PostData[]}
+          minimumItemCount={7}
+          buttonText={"Tümünü Gör"}
+          item={(post, index) => (
             <Post
-              key={value._id}
-              title={value.attributes.title}
-              description={value.attributes.desc}
+              key={post._id}
+              title={post.attributes.title}
+              description={post.attributes.desc}
               contentStyles={styles.content}
-              image={value.attributes.img}
+              image={post.attributes.img}
               authorImage=""
-              authorName={value.attributes.authors[0]}
-              index={index + 1}
-              date={value.createdAt}
+              authorName={post.attributes.authors[0]}
+              index={index}
+              date={post.createdAt}
               showPostImage={false}
-              slug={value.attributes.slug}
+              slug={post.attributes.slug}
             />
-          )
-        })}
-      </div>
-      <div className={styles.showAllWrapper}>
-        <SkewedButton
-          onClick={() => setLimitVisibleCards(!limitVisibleCards)}
-          className={styles.showAll}
-        >
-          <span className={styles.showAllText}>
-            {limitVisibleCards ? "Tümünü Gör" : "Daha Az Göster"}
-          </span>
-        </SkewedButton>
-      </div>
+          )}
+        />
+      )}
     </SectionLayout>
   )
 }

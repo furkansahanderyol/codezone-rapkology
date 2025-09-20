@@ -18,7 +18,6 @@ export default function HeroCard({
   image,
   dark,
 }: IProps) {
-  console.log("id", id)
   return (
     <div className={clsx(styles.container, dark && styles.dark)}>
       {id === 0 && (

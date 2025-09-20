@@ -1,5 +1,5 @@
 .container {
-  padding-top: 11.25rem;
+  padding-top: 4.625rem;
 
   .wrapper {
     display: grid;
@@ -173,15 +173,7 @@
           .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-          }
-
-          .showAllWrapper {
-            margin: 0 auto;
-
-            .showAll {
-              background-color: var(--white);
-              width: 186px;
-            }
+            row-gap: 3.625rem;
           }
         }
       }

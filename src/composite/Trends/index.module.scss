@@ -8,29 +8,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.75rem;
-
-    .content {
-      font-family: var(--font-saira-condensed);
-      font-size: 1.56rem;
-      font-weight: 700;
-
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-
-  .showAllWrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .showAll {
-      background-color: var(--white);
-    }
   }
 }
 

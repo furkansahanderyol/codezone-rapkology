@@ -9,17 +9,22 @@ import { IconGrid } from "@/assets/IconGrid"
 import Categories from "@/components/Categories"
 import { CATEGORIES } from "@/constants/categories"
 import { useAtom } from "jotai"
-import { dataAtom } from "@/stores"
+import { blogPageVisibleExploreAtom, dataAtom } from "@/stores"
 import Post from "@/components/Post"
 import { useState } from "react"
 import SkewedButton from "@/components/SkewedButton"
 import { IconDiamondShape } from "@/assets/IconDiamondShape"
 import SectionLayout from "@/layouts/SectionLayout"
 import { IconExploreBlogBackground } from "@/assets/IconExploreBlogBackground"
+import GridLayout from "@/layouts/GridLayout"
+import { PostData } from "@/services/type"
 
 export default function BlogExplore() {
   const [data] = useAtom(dataAtom)
   const [showAll, setShowAll] = useState(false)
+  const [visibleExploreItemCount, setVisibleExploreItemCount] = useAtom(
+    blogPageVisibleExploreAtom
+  )
   // const [listMode, setListMode] = useState<"grid" | "list">("grid")
 
   return (
@@ -52,36 +57,41 @@ export default function BlogExplore() {
           />
         </div>
 
-        <div className={styles.grid}>
-          {data?.map((value, index) => {
-            if (!showAll && index > 7) return
-
-            return (
+        {data && (
+          <GridLayout
+            initialItemCount={visibleExploreItemCount}
+            setInitialItemCount={setVisibleExploreItemCount}
+            moreItemCount={4}
+            gridStyles={styles.grid}
+            minimumItemCount={8}
+            buttonText="Tümünü Gör"
+            data={data as PostData[]}
+            item={(post, index) => (
               <Post
-                key={value._id}
-                image={value.attributes.img}
-                date={value.createdAt}
-                title={value.attributes.title}
+                key={post._id}
+                image={post.attributes.img}
+                date={post.createdAt}
+                title={post.attributes.title}
                 containerStyles={styles.postContainer}
                 contentStyles={styles.postContent}
                 wrapperStyles={styles.wrapperSpace}
-                authorName={value.attributes.authors[0]}
-                authorImage={value.attributes.img}
-                description={value.attributes.desc}
+                authorName={post.attributes.authors[0]}
+                authorImage={post.attributes.img}
+                description={post.attributes.desc}
                 showPostImage={true}
-                slug={value.attributes.slug}
+                slug={post.attributes.slug}
                 vertical
               />
-            )
-          })}
-        </div>
+            )}
+          />
+        )}
 
-        <SkewedButton
+        {/* <SkewedButton
           onClick={() => setShowAll(!showAll)}
           className={styles.button}
         >
           {showAll ? "Daha Az Göster" : "Daha Fazla Gör"}
-        </SkewedButton>
+        </SkewedButton> */}
       </div>
     </SectionLayout>
   )

@@ -8,7 +8,7 @@ import SectionLayout from "@/layouts/SectionLayout"
 import Image from "next/image"
 import { useParams } from "next/navigation"
 import { useAtom } from "jotai"
-import { dataAtom } from "@/stores"
+import { blogPostVisibleTrendsAtom, dataAtom } from "@/stores"
 import { useMemo, useState } from "react"
 import { IconEye } from "@/assets/IconEye"
 import { IconHeart } from "@/assets/IconHeart"
@@ -18,10 +18,15 @@ import SectionHeader from "@/components/SectionHeader"
 import Post from "@/components/Post"
 import SkewedButton from "@/components/SkewedButton"
 import { IconIncrease } from "@/assets/IconIncrease"
+import GridLayout from "@/layouts/GridLayout"
+import { PostData } from "@/services/type"
 
 export default function BlogPostPage() {
   const { slug } = useParams()
   const [data] = useAtom(dataAtom)
+  const [trendsVisibleItemCount, setTrendsVisibleItemCount] = useAtom(
+    blogPostVisibleTrendsAtom
+  )
   const [limitVisibleCards, setLimitVisibleCards] = useState(false)
 
   const selectedPost = useMemo(() => {
@@ -118,37 +123,32 @@ export default function BlogPostPage() {
             />
 
             <div className={styles.trendsWrapper}>
-              <div className={styles.grid}>
-                {data?.map((value, index) => {
-                  if (limitVisibleCards && index > 3) return
-
-                  return (
+              {data && (
+                <GridLayout
+                  initialItemCount={trendsVisibleItemCount}
+                  setInitialItemCount={setTrendsVisibleItemCount}
+                  moreItemCount={3}
+                  gridStyles={styles.grid}
+                  data={data as PostData[]}
+                  minimumItemCount={6}
+                  buttonText={"Tümünü Gör"}
+                  item={(post, index) => (
                     <Post
-                      key={value._id}
-                      title={value.attributes.title}
-                      description={value.attributes.desc}
+                      key={post._id}
+                      title={post.attributes.title}
+                      description={post.attributes.desc}
                       contentStyles={styles.content}
-                      image={value.attributes.img}
+                      image={post.attributes.img}
                       authorImage=""
-                      authorName={value.attributes.authors[0]}
-                      index={index + 1}
-                      date={value.createdAt}
+                      authorName={post.attributes.authors[0]}
+                      index={index}
+                      date={post.createdAt}
                       showPostImage={false}
-                      slug={value.attributes.slug}
+                      slug={post.attributes.slug}
                     />
-                  )
-                })}
-              </div>
-              <div className={styles.showAllWrapper}>
-                <SkewedButton
-                  onClick={() => setLimitVisibleCards(!limitVisibleCards)}
-                  className={styles.showAll}
-                >
-                  <span className={styles.showAllText}>
-                    {limitVisibleCards ? "Tümünü Gör" : "Daha Az Göster"}
-                  </span>
-                </SkewedButton>
-              </div>
+                  )}
+                />
+              )}
             </div>
           </div>
         </div>

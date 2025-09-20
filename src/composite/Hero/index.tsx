@@ -49,17 +49,15 @@ export default function Hero() {
 
   return (
     <section className={styles.container}>
-      {/* <div
-        ref={heroPaginationRef}
-        className={styles.customPaginationContainer}
-      /> */}
       <SwiperContainer
         slidersPerView={1}
         pagination={{ el: heroPaginationRef.current }}
-        delay={10000}
+        delay={5000}
         thumbs={true}
         arrows
+        loop
         scrollbar={false}
+        autoPlay
       >
         {HERO_CARDS?.map((card) => {
           return (

@@ -34,7 +34,7 @@
     justify-content: space-between;
     align-items: center;
     pointer-events: none;
-    transform: translateY(-15%);
+    transform: translateY(-50%);
     color: var(--white);
 
     .leftArrow,
@@ -81,6 +81,13 @@
     max-width: 70%;
     width: 70%;
     background-color: var(--weak-text);
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    .arrows {
+    }
   }
 }
 
