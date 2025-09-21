@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rapkology
 
-## Getting Started
+Bu proje Codezone şirketi için hazırlanan case çalışmasıdır.
 
-First, run the development server:
+## Canlı Demo
+
+- [Vercel Demo](https://codezone-rapkology-6lfxyg4k9-furkans-projects-5892aebe.vercel.app/)
+
+## Teknolojiler
+
+- **Next.js 15**: Sunucu tarafında renderlama (SSR) ve statik site oluşturma (SSG) yeteneklerinden faydalanarak hızlı sayfa yükleme süreleri elde etmek için kullanıldı.
+- **SCSS**: CSS'e kıyasla değişkenler, iç içe geçmiş kurallar ve mixin'ler gibi gelişmiş özellikler sunarak daha düzenli ve sürdürülebilir stil kodları yazmayı sağladı.
+- **TypeScript**: Geliştirme sürecindeki hataları en aza indirmek ve uzun vadede kod kalitesini artırmak için kullanıldı.
+- **Jotai**: Kolay kullanımı ve sağladığı esnek yapısı için global state yönetimi amacıyla kullanıldı.
+- **React Swiper**: Projede kullanılan slider ve carousel bileşenleri için tercih edildi.
+
+## ⚡ Kurulum ve Çalıştırma
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 1. Repo'yu klonlayın
+git clone https://github.com/furkansahanderyol/codezone-rapkology.git
+
+# 2. Proje dizine gidin
+cd codezone-rapkology
+
+# 3. Gerekli bağımlılıkları yükleyin
+npm install # veya yarn install
+
+# 4. Uygulamayı geliştirme modunda çalıştırın
+npm run dev # veya yarn dev
+```
+## 📂  Proje Yapısı
+
+```bash
+/src
+├── app/          # Next.js App Router sayfaları ve layout yapısı
+├── assets/       # Projede kullanılan ikonların TypeScript uyumlu, props kullanılarak değiştirilebilir varyantları
+├── components/   # Tekil, yeniden kullanılabilir UI bileşenleri
+├── composite/    # Birden fazla component'in birleşiminden oluşan yapılar
+├── constants/    # Sabit değerler
+├── helpers/      # Yardımcı fonksiyonlar ve util dosyaları
+├── hooks/        # Custom React hook'ları
+├── layouts/      # Sayfa düzenleri (GridLayout, SectionLayout)
+├── provider/     # Global provider bileşenleri
+├── services/     # API çağrıları ve servis katmanı
+└── stores/       # State management (Jotai)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**ShowPagination** componenti, oluşturulan sayfalar arasında **kolay ve hızlı geçiş** yapılabilmesi amacıyla eklendi. Uygulama içerisinde sağ alt kısımda bulunan göz ikonuna tıklanılarak kullanılabilir.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**DataLoader** componenti, sayfa yüklenirken API'dan verileri çekme işleminin simüle edilmesi için kullanıldı.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Projede bazı component dosyaları, **belirli bir yapı veya kütüphane mantığıyla birlikte çalışacak şekilde gruplanmıştır**.  
+Örnek: `-Skeleton/` dizini içerisinde yer alan componentler.
 
-## Learn More
+- **SkeletonLine**  
+  - Yazıların yerini doldurması için oluşturulmuştur.
+- **SkeletonImage**  
+  - Fotoğrafların yerini doldurması için oluşturulmuştur.
 
-To learn more about Next.js, take a look at the following resources:
+**layouts/** klasöründe bulunan componentler, tasarım içerisinde tekrar eden **daha büyük yapılar** için kullanıldı.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**provider/** klasöründe Jotai kütühpanesi için Store kurulumu yapıldı.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
