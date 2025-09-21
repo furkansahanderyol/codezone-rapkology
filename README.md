@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+ <h1>Rapkology</h1>
 
-## Getting Started
 
-First, run the development server:
+<p>Bu proje Codezone şirketi için hazırlanan case çalışmasıdır.</p>
+
+<h2>Canlı Demo</h2>
+<li>
+  <ul>- [Vercel Demo] (https://codezone-rapkology-6lfxyg4k9-furkans-projects-5892aebe.vercel.app/)</ul>
+</li>
+
+
+<h2>Teknolojiler</h2>
+<ul>
+  <li><b>Next.js 15</b>: Sunucu tarafında renderlama (SSR) ve statik site oluşturma (SSG) yeteneklerinden faydalanarak hızlı sayfa yükleme süreleri ve daha iyi SEO performansı elde etmek için kullanıldı.</li>
+  <li><b>SCSS</b>: CSS'e kıyasla değişkenler, iç içe geçmiş kurallar ve mixin'ler gibi gelişmiş özellikler sunarak daha düzenli ve sürdürülebilir stil kodları yazmayı sağladı.</li>
+  <li><b>TypeScript</b>: Geliştirme sürecindeki hataları en aza indirmek ve uzun vadede kod kalitesini artırmak için kullanıldı.</li>
+  <li><b>Jotai</b>: Kolay kullanımı ve sağladığı esnek yapısı için global state yönetimi amacıyla kullanıldı.</li>
+  <li><b>React Swiper</b>: Projede kullanılan slider ve carousel bileşenleri için tercih edildi.</li>
+</ul>
+
+<h2>Kurulum ve Çalıştırma</h2>
+## ⚡ Kurulum ve Çalıştırma
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# 1. Repo'yu klonlayın
+git clone https://github.com/furkansahanderyol/codezone-rapkology.git
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# 2. Proje dizine gidin
+cd codezone-rapkology
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 3. Gerekli bağımlılıkları yükleyin
+npm install # veya yarn install
 
-## Learn More
+# 4. Uygulamayı geliştirme modunda çalıştırın
+npm run dev # veya yarn dev
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📂 Proje Yapısı
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+/src
+├── app/          # Next.js App Router sayfaları ve layout yapısı
+├── assets/       # Projede kullanılan ikonlar. 
+├── components/   # Tekil, yeniden kullanılabilir UI bileşenleri
+├── composite/    # Birden fazla component'in birleşiminden oluşan yapılar
+├── constants/    # Sabit değerler 
+├── helpers/      # Yardımcı fonksiyonlar ve util dosyaları
+├── hooks/        # Custom React hook'ları
+├── layouts/      # Sayfa düzenleri (ör. GridLayout, SectionLayout)
+├── provider/     # Global provider bileşenleri
+├── services/     # API çağrıları ve servis katmanı
+└── stores/       # State management (Jotai)
 
-## Deploy on Vercel
+### 📦 Component Grupları
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Projede bazı component dosyaları, **belirli bir yapı veya kütüphane mantığıyla birlikte çalışacak şekilde gruplanmıştır**.  
+Örnek: `-Skeleton/` dizini içerisinde yer alan componentler.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Örnek Grup: `-Skeleton`
+- **SkeletonLine**  
+  - Yazıların yerini  doldurması için oluşturulmuştur.
+- **SkeletonImage**  
+  - Fotoğrafların yerini doldurması için oluşturulmuştur.
+
+
+
+
