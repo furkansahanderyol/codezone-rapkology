@@ -3,14 +3,24 @@
 import { IconEye } from "@/assets/IconEye"
 import styles from "./index.module.scss"
 import Link from "next/link"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import clsx from "clsx"
+import { useOnClickOutside } from "@/hooks/useOnClickOutside"
 
 export default function ShowPagination() {
+  const paginationRef = useRef<HTMLDivElement | null>(null)
   const [listVisible, setListVisible] = useState(false)
 
+  useOnClickOutside(paginationRef, () => {
+    setListVisible(false)
+  })
+
   return (
-    <div className={styles.container}>
+    <div
+      ref={paginationRef}
+      onClick={() => setListVisible(!listVisible)}
+      className={clsx(styles.container, listVisible && styles.active)}
+    >
       <div className={clsx(styles.list, listVisible && styles.visible)}>
         <Link href={"/"}>Homapage</Link>
         <Link href={"/blog"}>Blog Page</Link>
@@ -18,7 +28,7 @@ export default function ShowPagination() {
           Blogpost Page
         </Link>
       </div>
-      <div onClick={() => setListVisible(!listVisible)} className={styles.eye}>
+      <div className={styles.eye}>
         <IconEye width={24} height={24} />
       </div>
     </div>
