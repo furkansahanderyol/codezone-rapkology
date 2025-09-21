@@ -29,7 +29,7 @@ export default function Explore() {
   useEffect(() => {
     setVisibleExploreItemCount(4)
     setView("list")
-  }, [setVisibleExploreItemCount])
+  }, [setVisibleExploreItemCount, setView])
 
   return (
     <SectionLayout className={styles.container}>

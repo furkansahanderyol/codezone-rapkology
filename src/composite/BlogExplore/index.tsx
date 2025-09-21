@@ -11,8 +11,7 @@ import { CATEGORIES } from "@/constants/categories"
 import { useAtom } from "jotai"
 import { blogPageVisibleExploreAtom, dataAtom, viewOptionAtom } from "@/stores"
 import Post from "@/components/Post"
-import { useEffect, useState } from "react"
-import SkewedButton from "@/components/SkewedButton"
+import { useEffect } from "react"
 import { IconDiamondShape } from "@/assets/IconDiamondShape"
 import SectionLayout from "@/layouts/SectionLayout"
 import { IconExploreBlogBackground } from "@/assets/IconExploreBlogBackground"
@@ -29,7 +28,8 @@ export default function BlogExplore() {
 
   useEffect(() => {
     setView("grid")
-  }, [setView])
+    setVisibleExploreItemCount(8)
+  }, [setView, setVisibleExploreItemCount])
 
   return (
     <SectionLayout className={styles.container}>

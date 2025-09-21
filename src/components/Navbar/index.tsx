@@ -33,7 +33,7 @@ export default function Navbar() {
       <div className={styles.rightSide}>
         <div
           onClick={() => {
-            showMenu ? setShowMenu(false) : setShowMenu(true)
+            return showMenu ? setShowMenu(false) : setShowMenu(true)
           }}
           className={clsx(styles.menu, showMenu && styles.active)}
         />

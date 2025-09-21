@@ -7,6 +7,8 @@ import clsx from "clsx"
 import { useAtom } from "jotai"
 import { viewOptionAtom } from "@/stores"
 import { formatDate } from "@/helpers/formatDate"
+import SkeletonLine from "../-Skeleton/SkeletonLine"
+import SkeletonImage from "../-Skeleton/SkeletonImage"
 
 interface IProps {
   title: string
@@ -51,9 +53,12 @@ export default function Post({
         )}
         {showPostImage && (
           <div className={clsx(styles.postImageSide, imageStyles)}>
-            <div className={styles.postImage}>
-              <Image src={image} fill objectFit="cover" alt="" />
-            </div>
+            <SkeletonImage height={245} radius={0}>
+              <div className={styles.postImage}>
+                <Image src={image} fill objectFit="cover" alt="" />
+              </div>
+            </SkeletonImage>
+
             <div className={styles.date}>{formatDate(date)}</div>
           </div>
         )}
@@ -67,9 +72,13 @@ export default function Post({
             />
 
             <div className={styles.contentWrapper}>
-              <div className={clsx(styles.content, contentStyles)}>
-                {description}
-              </div>
+              {
+                <SkeletonLine count={3} width={1200} height={12}>
+                  <div className={clsx(styles.content, contentStyles)}>
+                    {description}
+                  </div>
+                </SkeletonLine>
+              }
             </div>
           </div>
           <div className={styles.readMore}>
@@ -99,9 +108,12 @@ export default function Post({
         <div className={styles.flex}>
           {showPostImage && (
             <div className={clsx(styles.postImageSide, imageStyles)}>
-              <div className={styles.postImage}>
-                <Image src={image} fill objectFit="cover" alt="" />
-              </div>
+              <SkeletonImage height={196} radius={0}>
+                <div className={styles.postImage}>
+                  <Image src={image} fill objectFit="cover" alt="" />
+                </div>
+              </SkeletonImage>
+
               <div className={styles.date}>{formatDate(date)}</div>
             </div>
           )}
@@ -109,9 +121,11 @@ export default function Post({
           <div className={clsx(styles.wrapper, wrapperStyles)}>
             <div className={styles.postInformation}>
               <div className={styles.contentWrapper}>
-                <div className={clsx(styles.content, contentStyles)}>
-                  {description}
-                </div>
+                <SkeletonLine height={20} count={4}>
+                  <div className={clsx(styles.content, contentStyles)}>
+                    {description}
+                  </div>
+                </SkeletonLine>
               </div>
             </div>
             <div className={styles.readMore}>

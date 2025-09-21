@@ -1,6 +1,8 @@
 import Image from "next/image"
 import styles from "./index.module.scss"
 import clsx from "clsx"
+import SkeletonImage from "../-Skeleton/SkeletonImage"
+import SkeletonLine from "../-Skeleton/SkeletonLine"
 
 interface IProps {
   url: string
@@ -19,10 +21,15 @@ export default function AuthorInformation({
 }: IProps) {
   return (
     <div className={clsx(styles.container, className)}>
-      <div className={styles.authorImage}>
-        <Image src={url} alt={alt} fill objectFit={objectFit} />
-      </div>
-      <div className={styles.authorName}>{name}</div>
+      <SkeletonImage width={32} height={32} radius={10}>
+        <div className={styles.authorImage}>
+          <Image src={url} alt={alt} fill objectFit={objectFit} />
+        </div>
+      </SkeletonImage>
+
+      <SkeletonLine width={120} height={16} count={1}>
+        <div className={styles.authorName}>{name}</div>
+      </SkeletonLine>
     </div>
   )
 }

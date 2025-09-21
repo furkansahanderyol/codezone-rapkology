@@ -1,0 +1,32 @@
+.container {
+  max-width: 100%;
+  .skeletonList {
+    display: grid;
+    grid-gap: 0.5rem;
+    max-width: 100%;
+
+    .skeletonWrapper {
+      overflow: hidden;
+      border-radius: 5px;
+
+      .skeletonLine {
+        border-radius: 5px;
+        background: linear-gradient(
+          110deg,
+          var(--copyright-gray) 8%,
+          var(--background) 18%,
+          var(--copyright-gray) 33%
+        );
+        background-size: 200% 100%;
+        animation: 1.5s shine linear infinite;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

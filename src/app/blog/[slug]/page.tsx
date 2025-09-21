@@ -19,6 +19,8 @@ import Post from "@/components/Post"
 import { IconIncrease } from "@/assets/IconIncrease"
 import GridLayout from "@/layouts/GridLayout"
 import { PostData } from "@/services/type"
+import SkeletonLine from "@/components/-Skeleton/SkeletonLine"
+import SkeletonImage from "@/components/-Skeleton/SkeletonImage"
 
 export default function BlogPostPage() {
   const { slug } = useParams()
@@ -48,24 +50,43 @@ export default function BlogPostPage() {
               <IconEye />
               12.094
             </div>
-            <div className={styles.postTitle}>
-              {selectedPost[0]?.attributes.title}
-            </div>
-            <div className={styles.postDescription}>
-              {selectedPost[0]?.attributes.desc}
-            </div>
-            <div className={styles.postContent}>
-              {selectedPost[0]?.attributes.content}
-            </div>
-            <div className={styles.postImageWrapper}>
-              <Image src={selectedPost[0].attributes.img} fill alt="" />
-            </div>
-            <div className={styles.postContent}>
-              {selectedPost[0]?.attributes.content}
-            </div>
-            <div className={styles.postContent}>
-              {selectedPost[0]?.attributes.content}
-            </div>
+            <SkeletonLine height={60} count={1}>
+              <h1 className={styles.postTitle}>
+                {selectedPost[0]?.attributes.title}
+              </h1>
+            </SkeletonLine>
+
+            <SkeletonLine height={25} count={2}>
+              <div className={styles.postDescription}>
+                {selectedPost[0]?.attributes.desc}
+              </div>
+            </SkeletonLine>
+
+            <SkeletonLine count={6} height={16}>
+              <div className={styles.postContent}>
+                {selectedPost[0]?.attributes.content}
+              </div>
+            </SkeletonLine>
+
+            <SkeletonImage radius={0} height={321}>
+              <div className={styles.postImageWrapper}>
+                <Image src={selectedPost[0].attributes.img} fill alt="" />
+              </div>
+            </SkeletonImage>
+
+            <SkeletonLine count={6} height={16}>
+              children=
+              {
+                <div className={styles.postContent}>
+                  {selectedPost[0]?.attributes.content}
+                </div>
+              }
+            </SkeletonLine>
+            <SkeletonLine count={6} height={16}>
+              <div className={styles.postContent}>
+                {selectedPost[0]?.attributes.content}
+              </div>
+            </SkeletonLine>
             <div className={styles.postTags}>
               {selectedPost[0].attributes.tags.map((tag, index) => {
                 return (
@@ -102,9 +123,16 @@ export default function BlogPostPage() {
                     href={`/blog/${post.attributes.slug}`}
                   >
                     <div className={styles.imageWrapper}>
-                      <Image src={post.attributes.img} alt="" fill />
+                      <SkeletonImage height={77} radius={0}>
+                        <Image src={post.attributes.img} alt="" fill />
+                      </SkeletonImage>
                     </div>
-                    <div className={styles.content}>{post.attributes.desc}</div>
+
+                    <SkeletonLine width={1000} height={25} count={3}>
+                      <div className={styles.content}>
+                        {post.attributes.desc}
+                      </div>
+                    </SkeletonLine>
                   </Link>
                 )
               })}

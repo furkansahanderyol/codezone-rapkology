@@ -3,7 +3,7 @@ import { atom } from "jotai"
 
 // global
 export const dataAtom = atom<PostListResponse | undefined>(undefined)
-export const loadingAtom = atom<boolean>(false)
+export const loadingAtom = atom<boolean>(true)
 
 // category
 export const selectedCategoryAtom = atom<number>(0)

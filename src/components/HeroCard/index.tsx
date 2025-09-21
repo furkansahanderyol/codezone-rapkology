@@ -2,6 +2,7 @@ import clsx from "clsx"
 import styles from "./index.module.scss"
 import Link from "next/link"
 import Image from "next/image"
+import SkeletonLine from "../-Skeleton/SkeletonLine"
 
 interface IProps {
   id: number
@@ -39,8 +40,12 @@ export default function HeroCard({
         alt=""
       />
       <div className={styles.content}>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.description}>{description}</div>
+        <SkeletonLine width={700} height={60} count={3}>
+          <h1 className={styles.title}>{title}</h1>
+        </SkeletonLine>
+        <SkeletonLine count={4} width={600} height={16}>
+          <div className={styles.description}>{description}</div>
+        </SkeletonLine>
 
         <div className={styles.readMoreWrapper}>
           <Link className={styles.readMore} href={`/blog/${slug}`}>

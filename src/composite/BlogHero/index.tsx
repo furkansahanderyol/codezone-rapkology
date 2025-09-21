@@ -9,6 +9,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { useMemo, useState } from "react"
 import Breadcrumb from "@/components/Breadcrumb"
+import SkeletonImage from "@/components/-Skeleton/SkeletonImage"
+import SkeletonLine from "@/components/-Skeleton/SkeletonLine"
 
 export default function BlogHero() {
   const [data] = useAtom(dataAtom)
@@ -39,7 +41,7 @@ export default function BlogHero() {
               { label: "Lorem Ipsum", url: "" },
             ]}
           />
-          <div className={styles.title}>BLOG</div>
+          <h1 className={styles.title}>BLOG</h1>
         </div>
 
         <div className={styles.content}>
@@ -69,21 +71,26 @@ export default function BlogHero() {
                         href={`/blog/${value.attributes.slug}`}
                         className={styles.swiperItem}
                       >
-                        <div className={styles.postImageWrapper}>
-                          <Image
-                            className={styles.postImage}
-                            src={value.attributes.img}
-                            fill
-                            priority
-                            alt={""}
-                          />
-                        </div>
-                        <div>
-                          <div className={styles.postTitle}>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit Ut et massa mi. Mauris nec leo non libero
-                            sodales lobortis. Quisque a neque preti ...
+                        <SkeletonImage height={430} radius={0}>
+                          <div className={styles.postImageWrapper}>
+                            <Image
+                              className={styles.postImage}
+                              src={value.attributes.img}
+                              fill
+                              priority
+                              alt={""}
+                            />
                           </div>
+                        </SkeletonImage>
+
+                        <div>
+                          <SkeletonLine width={523} height={25} count={3}>
+                            <div className={styles.postTitle}>
+                              Lorem ipsum dolor sit amet consectetur adipiscing
+                              elit Ut et massa mi. Mauris nec leo non libero
+                              sodales lobortis. Quisque a neque preti ...
+                            </div>
+                          </SkeletonLine>
                         </div>
                       </Link>
                     </SwiperSlide>
@@ -108,11 +115,16 @@ export default function BlogHero() {
                     className={styles.recommendedPost}
                   >
                     <div className={styles.imageWrapper}>
-                      <Image src={data.attributes.img} alt="" fill />
+                      <SkeletonImage height={104} radius={0}>
+                        <Image src={data.attributes.img} alt="" fill />
+                      </SkeletonImage>
                     </div>
-                    <div className={styles.description}>
-                      {data.attributes.desc}
-                    </div>
+
+                    <SkeletonLine width={1000} count={3} height={25}>
+                      <div className={styles.description}>
+                        {data.attributes.desc}
+                      </div>
+                    </SkeletonLine>
                   </Link>
                 )
               })}

@@ -166,6 +166,7 @@
 
             img {
               object-fit: cover;
+              width: 100%;
             }
           }
 
@@ -304,6 +305,9 @@
           .recommendedPost {
             .imageWrapper {
               min-width: 183px;
+              img {
+                min-width: 183px;
+              }
             }
 
             .description {
