@@ -7,6 +7,7 @@ import { FormEvent } from "react"
 import Link from "next/link"
 import clsx from "clsx"
 import { IconRapkologyLogo } from "@/assets/IconRapkologyLogo"
+import { IconArrowRightThick } from "@/assets/IconArrowRightThick"
 
 interface IProps {
   configuration: "footer" | "body"
@@ -49,7 +50,7 @@ export default function ContactForm({
               className={styles.sendButton}
             >
               Gönder
-              <IconArrowRight />
+              <IconArrowRightThick />
             </button>
           }
         />
