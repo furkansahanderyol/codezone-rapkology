@@ -22,7 +22,7 @@ export default function Hero() {
         arrows
         loop
         scrollbar={false}
-        autoPlay={false}
+        autoPlay={true}
       >
         {HERO_CARDS?.map((card) => {
           return (
