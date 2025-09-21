@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  height: 703px;
   position: relative;
   display: flex;
   justify-content: flex-end;
@@ -14,12 +14,12 @@
 
   .backgroundImage {
     object-fit: cover;
-    object-position: -220px;
+    object-position: -300px -40px;
   }
 
   .firstImage {
-    object-position: center;
-    object-fit: cover;
+    object-position: top;
+    object-fit: contain;
   }
 
   font-family: var(--font-saira-condensed);
@@ -98,9 +98,23 @@
   }
 }
 
+@media (min-width: 1201px) {
+  .container {
+    .firstImage {
+      object-fit: cover;
+    }
+  }
+}
+
 @media (max-width: 1200px) {
   .container {
     justify-content: center;
+    height: 720px;
+
+    .backgroundImage {
+      object-fit: cover;
+      object-position: center;
+    }
 
     .content {
       width: 100%;
@@ -134,8 +148,8 @@
   .container {
     .backgroundImage {
       object-fit: contain;
-      object-position: 0px 400px;
-      scale: 2;
+      object-position: 0px 300px;
+      scale: 1.5;
     }
 
     .firstImage {
@@ -151,6 +165,10 @@
       .title {
         font-size: 3rem;
       }
+
+      .description {
+        font-size: 0.875rem;
+      }
     }
   }
 }
@@ -159,12 +177,23 @@
   .container {
     background-position: center bottom;
 
+    .backgroundImage {
+      object-position: left 80%;
+    }
+
+    .firstImage {
+      object-position: center;
+    }
+
     .content {
       padding: 4.25rem;
       padding-top: 108px;
+      align-items: center;
 
       .title {
         font-size: 1.875rem;
+        max-width: 95%;
+        margin: 0 auto;
       }
     }
   }

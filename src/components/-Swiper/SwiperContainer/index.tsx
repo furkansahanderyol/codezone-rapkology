@@ -96,12 +96,16 @@ export default function SwiperContainer({
         breakpoints={
           scrollbar
             ? {
-                1025: {
+                1180: {
                   slidesPerView: 3,
                 },
 
+                1025: {
+                  slidesPerView: 2,
+                },
+
                 768: {
-                  slidesPerView: 3,
+                  slidesPerView: 2,
                 },
 
                 580: {

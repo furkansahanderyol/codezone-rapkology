@@ -22,7 +22,7 @@ export default function Hero() {
         arrows
         loop
         scrollbar={false}
-        autoPlay
+        autoPlay={false}
       >
         {HERO_CARDS?.map((card) => {
           return (
@@ -40,7 +40,7 @@ export default function Hero() {
         })}
       </SwiperContainer>
       <div className={styles.heroVector}>
-        <Image src={"/vector.webp"} fill alt="" objectFit="cover" />
+        <Image src={"/vector.webp"} fill alt="" />
       </div>
       <div
         ref={setHeroPaginationRef}

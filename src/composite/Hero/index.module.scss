@@ -4,13 +4,17 @@
   position: relative;
 
   .heroVector {
-    z-index: 1000;
+    z-index: 100;
     position: absolute;
     left: 0;
-    bottom: 0px;
+    bottom: -20px;
     width: 100%;
-    height: 245px;
+    height: 200px;
     user-select: none;
+
+    img {
+      object-fit: contain;
+    }
   }
 
   .customPaginationContainer {
@@ -20,7 +24,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    bottom: 20%;
+    bottom: 15%;
     left: 56%;
     z-index: 4000;
     cursor: pointer;
@@ -40,19 +44,84 @@
   }
 }
 
+@media (min-width: 1441px) {
+  .container {
+    .heroVector {
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .container {
+    .heroVector {
+      bottom: -30px;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    .customPaginationContainer {
+      bottom: 10%;
+    }
+  }
+}
+
 @media (max-width: 1200px) {
   .container {
     .customPaginationContainer {
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-60%);
+    }
+  }
+}
+
+@media (max-width: 1180px) {
+  .container {
+    .heroVector {
+      bottom: -40px;
+    }
+  }
+}
+
+@media (max-width: 968px) {
+  .container {
+    .heroVector {
+      bottom: -50px;
     }
   }
 }
 
 @media (max-width: 768px) {
   .container {
+    .heroVector {
+      bottom: -60px;
+      img {
+        object-fit: contain;
+      }
+    }
+
     .customPaginationContainer {
       display: none;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    .heroVector {
+      bottom: -70px;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    .heroVector {
+      bottom: -80px;
     }
   }
 }

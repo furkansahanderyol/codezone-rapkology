@@ -130,6 +130,7 @@
     .leftSide {
       width: 100%;
       position: relative;
+      gap: 3.3rem;
 
       .list {
         width: 100%;
@@ -148,9 +149,20 @@
           }
         }
       }
+
+      .leftSideUpper {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2.625rem;
+
+        .categoriesResponsive {
+          display: flex;
+        }
+      }
     }
 
     .rightSide {
+      display: none;
       .sticky {
         display: none;
       }
@@ -168,26 +180,6 @@
     .leftSide {
       width: 100%;
       position: relative;
-
-      .leftSideUpper {
-        display: flex;
-        flex-direction: column;
-        gap: 2.6rem;
-
-        .categoriesResponsive {
-          display: flex;
-        }
-
-        .headerWrapper {
-          .header {
-            gap: 0.93rem;
-            svg {
-              width: 42px;
-              height: 42px;
-            }
-          }
-        }
-      }
 
       .buttons {
         .icon {
