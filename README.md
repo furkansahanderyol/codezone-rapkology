@@ -4,7 +4,7 @@ Bu proje Codezone şirketi için hazırlanan case çalışmasıdır.
 
 ## Canlı Demo
 
-- [Vercel Demo](https://codezone-rapkology-6lfxyg4k9-furkans-projects-5892aebe.vercel.app/)
+- [Vercel Demo]([https://codezone-rapkology-6lfxyg4k9-furkans-projects-5892aebe.vercel.app/](https://codezone-rapkology-git-master-furkans-projects-5892aebe.vercel.app?_vercel_share=6kDqgvvPW7OA46JcSo8ez1B6yYXA5liu)
 
 ## Teknolojiler
 
